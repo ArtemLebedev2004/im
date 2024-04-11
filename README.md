@@ -1,4 +1,4 @@
-# ilya-muromec
+# diplom
 
 ## Project setup
 ```
