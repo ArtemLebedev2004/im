@@ -4,6 +4,7 @@ import HomeView from '@/views/HomeView'
 import HistoryOfProblemsView from '@/views/HistoryOfProblemsView'
 import AdminView from '@/views/AdminView'
 import DescriptionModelView from '@/views/DescriptionModelView'
+import ProfileView from '@/views/ProfileView'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/description',
     name: 'description',
     component: DescriptionModelView
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView
   }
 ]
 
