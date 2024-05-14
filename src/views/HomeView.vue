@@ -15,33 +15,23 @@
                         </svg>
                     </div>
 
-                    <div class="flex gap-6">
-                        <svg width="36" height="36" viewBox="0 0 38 38" fill="none" @click="toggleModal(2)">
-                            <path d="M36 36L27.7966 27.7966M27.7966 27.7966C29.1999 26.3934 30.313 24.7276 31.0724 22.8942C31.8318 21.0608 32.2227 19.0958 32.2227 17.1113C32.2227 15.1269 31.8318 13.1619 31.0724 11.3285C30.313 9.49508 29.1999 7.82922 27.7966 6.42601C26.3934 5.02279 24.7276 3.9097 22.8942 3.15028C21.0608 2.39087 19.0958 2 17.1113 2C15.1269 2 13.1619 2.39087 11.3285 3.15028C9.49508 3.9097 7.82922 5.02279 6.426 6.42601C3.59208 9.25993 2 13.1036 2 17.1113C2 21.1191 3.59208 24.9627 6.426 27.7966C9.25993 30.6306 13.1036 32.2227 17.1113 32.2227C21.1191 32.2227 24.9627 30.6306 27.7966 27.7966Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-
-                        <div v-if="modals[1].visible" class="absolute inset-0">
-                            <div @click="toggleModal(2, true)" class="flex justify-center py-2 bg-light-black">
-                                <svg width="28" height="28" class="" viewBox="2 2 12 12">
-                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" fill="#fff"/>
-                                </svg>
-                            </div>
-
-                            <div class="flex h-full bg-white">
-                                <input type="text" placeholder="Поиск" class="w-full h-full px-2 text-xl outline-none">
-
-                                <div class="flex items-center pr-3">
-                                    <svg width="36" height="36" viewBox="0 0 38 38" fill="none" @click="toggleModal(2)">
-                                        <path d="M36 36L27.7966 27.7966M27.7966 27.7966C29.1999 26.3934 30.313 24.7276 31.0724 22.8942C31.8318 21.0608 32.2227 19.0958 32.2227 17.1113C32.2227 15.1269 31.8318 13.1619 31.0724 11.3285C30.313 9.49508 29.1999 7.82922 27.7966 6.42601C26.3934 5.02279 24.7276 3.9097 22.8942 3.15028C21.0608 2.39087 19.0958 2 17.1113 2C15.1269 2 13.1619 2.39087 11.3285 3.15028C9.49508 3.9097 7.82922 5.02279 6.426 6.42601C3.59208 9.25993 2 13.1036 2 17.1113C2 21.1191 3.59208 24.9627 6.426 27.7966C9.25993 30.6306 13.1036 32.2227 17.1113 32.2227C21.1191 32.2227 24.9627 30.6306 27.7966 27.7966Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
+                    <div @click="toggleModal(3)" class="relative">
+                        <div class="
+                            relative 
+                            z-10 
+                            w-full 
+                            px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5
+                            text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
+                            text-white 
+                            text-center 
+                            bg-light-black
+                        ">
+                            <div class="">
+                                Создать заявку
                             </div>
                         </div>
 
-                        <svg @click="modals[3].visible ? toggleModal(4, true) : toggleModal(4)" width="36" height="36" viewBox="0 0 46 46" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 22.7285C0 16.7005 2.40081 10.9194 6.67428 6.65701C10.9478 2.3946 16.7438 0 22.7874 0C28.831 0 34.6271 2.3946 38.9006 6.65701C43.174 10.9194 45.5749 16.7005 45.5749 22.7285C45.5749 28.7564 43.174 34.5375 38.9006 38.7999C34.6271 43.0623 28.831 45.4569 22.7874 45.4569C16.7438 45.4569 10.9478 43.0623 6.67428 38.7999C2.40081 34.5375 0 28.7564 0 22.7285ZM22.7874 3.26016C19.0041 3.26029 15.3024 4.35706 12.1326 6.41704C8.96282 8.47702 6.46155 11.4114 4.9331 14.8632C3.40465 18.3151 2.91491 22.1356 3.52345 25.8599C4.13199 29.5843 5.81258 33.052 8.36078 35.8412C9.90779 33.4243 12.0406 31.4354 14.5622 30.0583C17.0837 28.6811 19.9126 27.9601 22.7874 27.9619C25.6623 27.9598 28.4913 28.6806 31.0129 30.0578C33.5345 31.435 35.6673 33.4241 37.2141 35.8412C39.7623 33.052 41.4429 29.5843 42.0514 25.8599C42.66 22.1356 42.1702 18.3151 40.6418 14.8632C39.1133 11.4114 36.612 8.47702 33.4422 6.41704C30.2724 4.35706 26.5707 3.26029 22.7874 3.26016ZM34.7678 38.0992C33.5502 36.0063 31.8026 34.2693 29.6999 33.0623C27.5972 31.8552 25.2135 31.2206 22.7874 31.222C20.3614 31.2206 17.9776 31.8552 15.8749 33.0623C13.7723 34.2693 12.0246 36.0063 10.8071 38.0992C14.2297 40.7612 18.4473 42.2036 22.7874 42.1968C27.3016 42.1968 31.4579 40.6662 34.7678 38.0992ZM14.7019 19.3139C14.7019 17.175 15.5538 15.1237 17.0701 13.6113C18.5864 12.0989 20.643 11.2493 22.7874 11.2493C24.9318 11.2493 26.9884 12.0989 28.5048 13.6113C30.0211 15.1237 30.873 17.175 30.873 19.3139C30.873 21.4527 30.0211 23.504 28.5048 25.0164C26.9884 26.5288 24.9318 27.3785 22.7874 27.3785C20.643 27.3785 18.5864 26.5288 17.0701 25.0164C15.5538 23.504 14.7019 21.4527 14.7019 19.3139ZM22.7874 14.5094C22.1549 14.5094 21.5285 14.6337 20.9441 14.8751C20.3597 15.1166 19.8286 15.4705 19.3814 15.9166C18.9341 16.3627 18.5793 16.8924 18.3372 17.4753C18.0951 18.0582 17.9705 18.6829 17.9705 19.3139C17.9705 19.9448 18.0951 20.5695 18.3372 21.1524C18.5793 21.7354 18.9341 22.265 19.3814 22.7111C19.8286 23.1573 20.3597 23.5112 20.9441 23.7526C21.5285 23.994 22.1549 24.1183 22.7874 24.1183C24.065 24.1183 25.2902 23.6121 26.1935 22.7111C27.0968 21.8101 27.6043 20.5881 27.6043 19.3139C27.6043 18.0397 27.0968 16.8176 26.1935 15.9166C25.2902 15.0156 24.065 14.5094 22.7874 14.5094Z" fill="black"/>
-                        </svg>
-
+                        
                     </div>
                 </div>
 
@@ -55,230 +45,213 @@
     </header>
     
     <main>
-        <section class="">
-            <div class="lg:h-screen max-md:pt-20 px-3 min-[568px]:px-5 min-[640px]:px-8 md:px-0 md:flex md:flex-row-reverse ">
-
-                <div class="relative md:z-20 md:inset-y-0 md:w-1/3 min-[960px]:w-1/2 max-md:pr-2 ">
-                    <div class="relative md:z-20 min-[480px]:w-full min-[480px]:h-56 md:h-full min-[480px]:bg-[url('../assets/img/LogoImg.png')] min-[480px]:bg-cover min-[480px]:bg-[center_top_50%]">
-                        <img src="../assets/img/LogoImg.png" alt="" class="min-[480px]:hidden relative">
-                    </div>
-
-                    <div class="md:hidden absolute top-2 left-2 right-0 h-full border-light-black border-[1px]">
-                    </div>
+        <section class="md:flex md:flex-row-reverse relative">
+            <div class="max-md:fixed z-[-1] md:z-20 top-0 md:inset-y-0 md:w-1/3 min-[960px]:w-1/2 ">
+                <div class="sticky top-0 md:z-20 min-[480px]:w-full min-[480px]:h-56 md:h-screen min-[767px]:bg-[url('../assets/img/LogoImg.png')] min-[480px]:bg-cover min-[480px]:bg-[center_top_50%]">
+                    <img src="../assets/img/LogoImg.png" alt="" class="min-[768px]:hidden relative">
                 </div>
+            </div>
 
-                <div class="relative md:w-2/3 min-[960px]:w-1/2">
+            
 
-                    <nav class="max-md:hidden absolute inset-x-0 z-20 flex flex-col px-8 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:px-20 pt-7 lg:pt-10 xl:pt-16 min-[1920px]:pt-20 bg-white">
-                        <div class="flex justify-between items-center">
-                            <div v-if="!modals[0].visible" @click="toggleModal(1)">
-                                <div class="w-9 md:max-xl:w-7 min-[1920px]:w-12 h-[3px] md:max-xl:h-[2px] min-[1920px]:h-[4px] bg-light-black"></div>
-                                <div class="w-9 md:max-xl:w-7 min-[1920px]:w-12 h-[3px] md:max-xl:h-[2px] min-[1920px]:h-[4px] my-2 min-[1920px]:my-[10px] md:max-xl:my-[6px] bg-light-black"></div>
-                                <div class="w-9 md:max-xl:w-7 min-[1920px]:w-12 h-[3px] md:max-xl:h-[2px] min-[1920px]:h-[4px] bg-light-black"></div>
-                            </div>
-
-                            <div v-if="modals[0].visible" @click="toggleModal(1, true)" class="relative">
-                                <svg viewBox="2 2 12 12" class="w-7 md:max-xl:w-5 min-[1920px]:w-9">
-                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                                </svg>
-                            </div>
-
-                            <div class="flex gap-6 xl:gap-8 min-[1920px]:gap-10">
-                                <svg viewBox="0 0 38 38" fill="none" @click="toggleModal(2)" class="w-9 md:max-xl:w-7 min-[1920px]:w-12">
-                                    <path d="M36 36L27.7966 27.7966M27.7966 27.7966C29.1999 26.3934 30.313 24.7276 31.0724 22.8942C31.8318 21.0608 32.2227 19.0958 32.2227 17.1113C32.2227 15.1269 31.8318 13.1619 31.0724 11.3285C30.313 9.49508 29.1999 7.82922 27.7966 6.42601C26.3934 5.02279 24.7276 3.9097 22.8942 3.15028C21.0608 2.39087 19.0958 2 17.1113 2C15.1269 2 13.1619 2.39087 11.3285 3.15028C9.49508 3.9097 7.82922 5.02279 6.426 6.42601C3.59208 9.25993 2 13.1036 2 17.1113C2 21.1191 3.59208 24.9627 6.426 27.7966C9.25993 30.6306 13.1036 32.2227 17.1113 32.2227C21.1191 32.2227 24.9627 30.6306 27.7966 27.7966Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-
-                                <div v-if="modals[1].visible" class="absolute inset-0">
-                                    <div @click="toggleModal(2, true)" class="flex justify-center py-3 min-[1920px]:py-4 bg-light-black">
-                                        <svg class="w-[22px] min-[1920px]:w-7" viewBox="2 2 12 12">
-                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" fill="#fff"/>
-                                        </svg>
-                                    </div>
-
-                                    <div class="flex max-xl:h-full bg-white">
-                                        <input type="text" placeholder="Поиск" class="w-full max-xl:h-full xl:py-5 min-[1920px]:py-7 px-2 text-xl min-[1920px]:text-3xl outline-none">
-
-                                        <div class="flex items-center pr-3">
-                                            <svg viewBox="0 0 38 38" fill="none" @click="toggleModal(2)" class="w-9 md:max-xl:w-7 min-[1920px]:w-12">
-                                                <path d="M36 36L27.7966 27.7966M27.7966 27.7966C29.1999 26.3934 30.313 24.7276 31.0724 22.8942C31.8318 21.0608 32.2227 19.0958 32.2227 17.1113C32.2227 15.1269 31.8318 13.1619 31.0724 11.3285C30.313 9.49508 29.1999 7.82922 27.7966 6.42601C26.3934 5.02279 24.7276 3.9097 22.8942 3.15028C21.0608 2.39087 19.0958 2 17.1113 2C15.1269 2 13.1619 2.39087 11.3285 3.15028C9.49508 3.9097 7.82922 5.02279 6.426 6.42601C3.59208 9.25993 2 13.1036 2 17.1113C2 21.1191 3.59208 24.9627 6.426 27.7966C9.25993 30.6306 13.1036 32.2227 17.1113 32.2227C21.1191 32.2227 24.9627 30.6306 27.7966 27.7966Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <svg @click="modals[3].visible ? toggleModal(4, true) : toggleModal(4)" viewBox="0 0 46 46" fill="none" class="w-9 md:max-xl:w-7 min-[1920px]:w-12">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 22.7285C0 16.7005 2.40081 10.9194 6.67428 6.65701C10.9478 2.3946 16.7438 0 22.7874 0C28.831 0 34.6271 2.3946 38.9006 6.65701C43.174 10.9194 45.5749 16.7005 45.5749 22.7285C45.5749 28.7564 43.174 34.5375 38.9006 38.7999C34.6271 43.0623 28.831 45.4569 22.7874 45.4569C16.7438 45.4569 10.9478 43.0623 6.67428 38.7999C2.40081 34.5375 0 28.7564 0 22.7285ZM22.7874 3.26016C19.0041 3.26029 15.3024 4.35706 12.1326 6.41704C8.96282 8.47702 6.46155 11.4114 4.9331 14.8632C3.40465 18.3151 2.91491 22.1356 3.52345 25.8599C4.13199 29.5843 5.81258 33.052 8.36078 35.8412C9.90779 33.4243 12.0406 31.4354 14.5622 30.0583C17.0837 28.6811 19.9126 27.9601 22.7874 27.9619C25.6623 27.9598 28.4913 28.6806 31.0129 30.0578C33.5345 31.435 35.6673 33.4241 37.2141 35.8412C39.7623 33.052 41.4429 29.5843 42.0514 25.8599C42.66 22.1356 42.1702 18.3151 40.6418 14.8632C39.1133 11.4114 36.612 8.47702 33.4422 6.41704C30.2724 4.35706 26.5707 3.26029 22.7874 3.26016ZM34.7678 38.0992C33.5502 36.0063 31.8026 34.2693 29.6999 33.0623C27.5972 31.8552 25.2135 31.2206 22.7874 31.222C20.3614 31.2206 17.9776 31.8552 15.8749 33.0623C13.7723 34.2693 12.0246 36.0063 10.8071 38.0992C14.2297 40.7612 18.4473 42.2036 22.7874 42.1968C27.3016 42.1968 31.4579 40.6662 34.7678 38.0992ZM14.7019 19.3139C14.7019 17.175 15.5538 15.1237 17.0701 13.6113C18.5864 12.0989 20.643 11.2493 22.7874 11.2493C24.9318 11.2493 26.9884 12.0989 28.5048 13.6113C30.0211 15.1237 30.873 17.175 30.873 19.3139C30.873 21.4527 30.0211 23.504 28.5048 25.0164C26.9884 26.5288 24.9318 27.3785 22.7874 27.3785C20.643 27.3785 18.5864 26.5288 17.0701 25.0164C15.5538 23.504 14.7019 21.4527 14.7019 19.3139ZM22.7874 14.5094C22.1549 14.5094 21.5285 14.6337 20.9441 14.8751C20.3597 15.1166 19.8286 15.4705 19.3814 15.9166C18.9341 16.3627 18.5793 16.8924 18.3372 17.4753C18.0951 18.0582 17.9705 18.6829 17.9705 19.3139C17.9705 19.9448 18.0951 20.5695 18.3372 21.1524C18.5793 21.7354 18.9341 22.265 19.3814 22.7111C19.8286 23.1573 20.3597 23.5112 20.9441 23.7526C21.5285 23.994 22.1549 24.1183 22.7874 24.1183C24.065 24.1183 25.2902 23.6121 26.1935 22.7111C27.0968 21.8101 27.6043 20.5881 27.6043 19.3139C27.6043 18.0397 27.0968 16.8176 26.1935 15.9166C25.2902 15.0156 24.065 14.5094 22.7874 14.5094Z" fill="black"/>
-                                </svg>
-
-                            </div>
+            <div class="w-full min-[960px]:w-1/2 relative ">
+                <nav class="max-md:hidden sticky inset-x-0 top-0 z-20 flex flex-col px-8 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:px-20 pt-7 pb-9 lg:pt-10 xl:pt-12 min-[1920px]:pt-20 bg-white">
+                    <div class="flex justify-between items-center">
+                        <div v-if="!modals[0].visible" @click="toggleModal(1)">
+                            <div class="w-9 min-[1920px]:w-12 h-[3px]  min-[1920px]:h-[4px] bg-light-black"></div>
+                            <div class="w-9 min-[1920px]:w-12 h-[3px]   min-[1920px]:h-[4px] my-2 min-[1920px]:my-[10px] bg-light-black"></div>
+                            <div class="w-9 min-[1920px]:w-12 h-[3px]  min-[1920px]:h-[4px] bg-light-black"></div>
                         </div>
 
-                        <NavBarModal v-if="modals[0].visible" @openModal="toggleModal(3)"/>
-                        <CreatingApplicationModal v-if="modals[2].visible" @closeModal="toggleModal(3, true)"/>
-                        <UserModal v-if="modals[3].visible" @openSignInModal="toggleModal(5)" @openSignUpModal="toggleModal(6)" />
-                        <SignInModal v-if="modals[4].visible" @closeModal="toggleModal(5, true)" />
-                        <SignUpModal v-if="modals[5].visible" @closeModal="toggleModal(6, true)" />
-                    </nav>
-
-                    <div class=" max-md:mt-10 md:p-8 lg:py-0 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:px-20 md:max-lg:mt-20 lg:mt-36 xl:mt-44 min-[1920px]:mt-72 lg:bottom-0">
-                        <div>
-                            <h1 class="text-[30px] min-[480px]:text-4xl sm:text-5xl lg:text-[46px] xl:text-6xl min-[1920px]:text-7xl leading-8 font-bold">Илья Муромец</h1>
-
-                            <div class="relative mt-10 lg:mt-12 min-[1920px]:mt-20 flex justify-between">
-                                
-                                <div class="w-8 min-[410px]:w-6 h-32 min-[410px]:h-28 md:h-20 lg:h-24 xl:h-28 border-light-black border-l-[1px] min-[1920px]:border-l-2 border-t-[1px] min-[1920px]:border-t-2"></div>
-
-                                <div class="
-                                    absolute 
-                                    w-56 min-[410px]:w-[290px] min-[480px]:w-[345px] sm:max-md:w-[410px] lg:w-[385px] xl:w-[482px] min-[1920px]:w-[580px]
-                                    text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl 
-                                    leading-8 min-[1920px]:leading-[50px]
-                                    h-max 
-                                    m-auto 
-                                    inset-0
-                                ">
-                                    Компания по визуализации и созданию 3D-моделей
-                                </div>
-
-                                <div class="w-8 min-[410px]:w-6 h-32 min-[410px]:h-28 md:h-20 lg:h-24 xl:h-28 border-light-black border-b-[1px] min-[1920px]:border-b-2 border-r-[1px] min-[1920px]:border-r-2"></div>
-                            
-                            </div>
-
-                            <svg viewBox="0 0 26 76" fill="none" class="w-5 min-[1920px]:w-7 m-auto my-10 min-[960px]:my-12 min-[1920px]:my-[68px]">
-                                <line x1="12.9878" y1="75.6464" x2="24.9878" y2="63.6464" stroke="black"/>
-                                <line x1="12.6862" y1="75.641" x2="0.647738" y2="63.6795" stroke="black"/>
-                                <line x1="12.8413" y1="2.18557e-08" x2="12.8413" y2="76" stroke="black"/>
+                        <div v-if="modals[0].visible" @click="toggleModal(1, true)" class="relative">
+                            <svg viewBox="2 2 12 12" class="w-7 md:max-xl:w-5 min-[1920px]:w-9">
+                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
                             </svg>
+                        </div>
 
-                            <div class="relative pr-2">
-                                
-                                <div class="
-                                    relative 
-                                    z-10 
-                                    w-full 
-                                    py-3 md:max-lg:py-2 xl:py-4 min-[1920px]:py-5
-                                    text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
-                                    text-white 
-                                    text-center 
-                                    bg-light-black
-                                ">
-                                    
-                                    <div class="">
-                                        Оставить заявку
-                                    </div>
-
+                        <div @click="toggleModal(3)" class="relative pr-2">
+                            <div class="
+                                relative 
+                                z-10 
+                                w-full 
+                                px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5 min-[1920px]:px-4
+                                min-[480px]:text-xl min-[1920px]:text-3xl
+                                text-white 
+                                text-center 
+                                bg-light-black
+                            ">
+                                <div class="">
+                                    Создать заявку
                                 </div>
+                            </div>
 
-                                <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
-                                </div>
-
+                            <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
                             </div>
                         </div>
+                    </div>
+
+                    <NavBarModal v-if="modals[0].visible" @openModal="toggleModal(3)"/>
+                    <CreatingApplicationModal v-if="modals[2].visible" @closeModal="toggleModal(3, true)"/>
+                    <UserModal v-if="modals[3].visible" @openSignInModal="toggleModal(5)" @openSignUpModal="toggleModal(6)" />
+                    <SignInModal v-if="modals[4].visible" @closeModal="toggleModal(5, true)" />
+                    <SignUpModal v-if="modals[5].visible" @closeModal="toggleModal(6, true)" />
+                </nav>
+
+                <div class=" max-[609px]:mt-72 max-[767px]:mt-96 max-md:pt-10 min-[610px]:pt-10  max-md:pb-16 min-[610px]:pb-[80px] px-3 min-[568px]:px-5 min-[640px]:px-8 md:px-0 bg-white">
+                    <div class="">
                         
 
+                        <div class="md:max-[959px]::w-2/3 md:p-8 min-[768px]:py-0 lg:py-0 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:px-20 md:max-[767px]:pt-20 lg:pt-24 lg:bottom-0">
+                            
+                                <h1 class="text-[30px] min-[480px]:text-4xl sm:text-5xl lg:text-[46px] xl:text-6xl min-[1920px]:text-7xl leading-8 font-bold">Илья Муромец</h1>
+
+                                <div class="relative mt-10 lg:mt-12 min-[1920px]:mt-20 flex justify-between">
+                                    
+                                    <div class="w-8 min-[410px]:w-6 h-32 min-[410px]:h-28 md:h-20 lg:h-24 xl:h-28 border-light-black border-l-[1px] min-[1920px]:border-l-2 border-t-[1px] min-[1920px]:border-t-2"></div>
+
+                                    <div class="
+                                        absolute 
+                                        w-56 min-[410px]:w-[290px] min-[480px]:w-[345px] sm:max-md:w-[410px] lg:w-[385px] xl:w-[482px] min-[1920px]:w-[580px]
+                                        text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl 
+                                        leading-8 min-[1920px]:leading-[50px]
+                                        h-max 
+                                        m-auto 
+                                        inset-0
+                                    ">
+                                        Компания по визуализации и созданию 3D-моделей
+                                    </div>
+
+                                    <div class="w-8 min-[410px]:w-6 h-32 min-[410px]:h-28 md:h-20 lg:h-24 xl:h-28 border-light-black border-b-[1px] min-[1920px]:border-b-2 border-r-[1px] min-[1920px]:border-r-2"></div>
+                                
+                                </div>
+
+                                <div class="mt-10 min-[768px]:mt-20 lg:mt-48 relative italic text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl">
+                                    <div>Вы придумываете идеи -</div> 
+                                    <div class="absolute right-0">мы их визуализируем</div>
+                                </div>
+                        </div>
+                        
                     </div>
                     
                 </div>
-                
+
+                <div class="px-3 min-[568px]:px-5 min-[640px]:px-8 md:px-0 max-md:py-10 min-[610px]:pt-20 min-[768px]:pt-20 bg-white max-[609px]:mt-72 max-[767px]:mt-96 ">
+
+                    <!-- <div class="relative md:z-20 md:inset-y-0 md:w-1/3 min-[960px]:w-1/2 max-md:pr-2 ">
+                        <div class="relative  min-[480px]:w-full min-[480px]:h-56 md:hidden min-[480px]:bg-[url('../assets/img/LogoImg.png')] min-[480px]:bg-cover min-[480px]:bg-[center_top_50%] ">
+                            <img src="../assets/img/LogoImg.png" alt="" class="min-[480px]:hidden relative">
+                        </div>
+
+                        <div class="md:hidden absolute top-2 left-2 right-0 h-full border-light-black border-[1px]">
+                        </div>
+                    </div> -->
+
+                    <div class=" md:p-8 md:max-[767px]:py-12 min-[768px]:py-0 lg:py-16 xl:py-20 min-[1920px]:py-24 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:px-20">
+
+                        <h2 class="text-[30px] min-[480px]:text-4xl sm:text-5xl lg:text-[45px] xl:text-[57px] min-[1920px]:text-7xl leading-8 font-bold">Наши услуги</h2>
+
+                        <div class="relative mt-10 lg:mt-14 min-[1920px]:mt-16 flex justify-between">
+                            <div class="
+                            w-8 min-[410px]:w-6 
+                            h-[300px] sm:h-[370px] md:h-[340px] lg:h-[360px] xl:h-[400px] min-[1920px]:h-[550px] 
+                            border-light-black border-l-[1px] min-[1920px]:border-l-2 border-t-[1px] min-[1920px]:border-t-2
+                            "></div>
+
+                            <div class="
+                                absolute 
+                                w-[250px] min-[410px]:w-[250px] min-[480px]:w-[300px] sm:w-[330px] md:w-[262px] min-[768px]:w-[350px] xl:w-[420px] 2xl:w-max
+                                text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
+                                leading-[23px]
+                                min-[1920px]:leading-[3rem]
+                                h-max 
+                                m-auto 
+                                inset-0
+                            ">
+                                <div class="flex flex-col gap-5 lg:gap-8">
+                                    <div class="flex items-center gap-3 ">
+                                        <div class="bg-black rounded-full text-white min-w-[40px] min-h-[40px] lg:min-w-[80px] lg:min-h-[80px] flex items-center justify-center">1</div>
+                                        <div>Создание 3D-визуализации</div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-black rounded-full text-white min-w-[40px] min-h-[40px] lg:min-w-[80px] lg:min-h-[80px] flex items-center justify-center">2</div>
+                                        <div>Создание 3D-моделей</div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-black rounded-full text-white min-w-[40px] min-h-[40px] lg:min-w-[80px] lg:min-h-[80px] flex items-center justify-center">3</div>
+                                        <div>Создание 3D-анимации</div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-black rounded-full text-white min-w-[40px] min-h-[40px] lg:min-w-[80px] lg:min-h-[80px] flex items-center justify-center">4</div>
+                                        <div>Создание 3D-иконок</div>
+                                    </div>
+                                </div>
+                                    
+                                
+                            </div>
+
+                            <div class="
+                            w-8 min-[410px]:w-6 
+                            h-[300px] sm:h-[370px] md:h-[340px] lg:h-[360px] xl:h-[400px] min-[1920px]:h-[550px] 
+                            border-light-black border-r-[1px] min-[1920px]:border-r-2 border-b-[1px] min-[1920px]:border-b-2
+                            "></div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
+            
 
         </section>
 
-
-        <section>
-
-            <div class="px-3 min-[568px]:px-5 min-[640px]:px-8 md:px-0 max-md:py-10 md:flex ">
-
-                <div class="relative md:z-20 md:inset-y-0 md:w-1/3 min-[960px]:w-1/2 max-md:pr-2 ">
-                    <div class="relative  min-[480px]:w-full min-[480px]:h-56 md:h-full min-[480px]:bg-[url('../assets/img/LogoImg.png')] min-[480px]:bg-cover min-[480px]:bg-[center_top_50%] ">
-                        <img src="../assets/img/LogoImg.png" alt="" class="min-[480px]:hidden relative">
+        <nav class="max-md:hidden mt-10 sticky inset-x-0 top-0 z-50 flex flex-col lg:px-28 xl:px-36 min-[1920px]:px-52 pt-5 pb-7 lg:pt-10 xl:pt-12 min-[1920px]:pt-20 bg-white">
+            <div class="md:max-lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div v-if="!modals[0].visible" @click="toggleModal(1)">
+                        <div class="w-9 min-[1920px]:w-12 h-[3px]  min-[1920px]:h-[4px] bg-light-black"></div>
+                        <div class="w-9 min-[1920px]:w-12 h-[3px]   min-[1920px]:h-[4px] my-2 min-[1920px]:my-[10px] bg-light-black"></div>
+                        <div class="w-9 min-[1920px]:w-12 h-[3px]  min-[1920px]:h-[4px] bg-light-black"></div>
                     </div>
 
-                    <div class="md:hidden absolute top-2 left-2 right-0 h-full border-light-black border-[1px]">
-                    </div>
-                </div>
-
-                <div class="md:w-2/3 min-[960px]:w-1/2 max-md:mt-10 md:p-8 md:py-12 lg:py-16 xl:py-20 min-[1920px]:py-24 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:px-20">
-
-                    <h2 class="text-[30px] min-[480px]:text-4xl sm:text-5xl lg:text-[45px] xl:text-[57px] min-[1920px]:text-7xl leading-8 font-bold">Наши услуги</h2>
-
-                    <div class="relative mt-10 lg:mt-14 min-[1920px]:mt-16 flex justify-between">
-                        <div class="
-                        w-8 min-[410px]:w-6 
-                        h-[300px] sm:h-[370px] md:h-[340px] lg:h-[360px] xl:h-[400px] min-[1920px]:h-[550px] 
-                        border-light-black border-l-[1px] min-[1920px]:border-l-2 border-t-[1px] min-[1920px]:border-t-2
-                        "></div>
-
-                        <div class="
-                            absolute 
-                            w-60 min-[410px]:w-[250px] min-[480px]:w-[300px] sm:w-[330px] md:max-lg:w-[262px] xl:w-[420px] min-[1920px]:w-[500px]
-                            text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
-                            min-[1920px]:leading-[3rem]
-                            h-max 
-                            m-auto 
-                            inset-0
-                        ">
-                            <ol class="list-decimal list-inside">
-                                <li>3D-визуализация</li>
-                                <li class="mt-4 sm:mt-6 min-[1920px]:mt-8">Создание 3D-моделей под ключ</li>
-                                <li class="mt-4 sm:mt-6 min-[1920px]:mt-8">Создание уникальной 3D-анимации для вашей 3D-модели</li>
-                                <li class="mt-4 sm:mt-6 min-[1920px]:mt-8">Создание 3D-иконок для сайтов</li>
-                            </ol>
-                        </div>
-
-                        <div class="
-                        w-8 min-[410px]:w-6 
-                        h-[300px] sm:h-[370px] md:h-[340px] lg:h-[360px] xl:h-[400px] min-[1920px]:h-[550px] 
-                        border-light-black border-r-[1px] min-[1920px]:border-r-2 border-b-[1px] min-[1920px]:border-b-2
-                        "></div>
+                    <div v-if="modals[0].visible" @click="toggleModal(1, true)" class="relative">
+                        <svg width="28" height="28" class="" viewBox="2 2 12 12">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                        </svg>
                     </div>
 
-                    <svg viewBox="0 0 26 76" fill="none" class="w-6 min-[1920px]:w-8 m-auto my-12 min-[1920px]:my-[70px]">
-                        <line x1="12.9878" y1="75.6464" x2="24.9878" y2="63.6464" stroke="black"/>
-                        <line x1="12.6862" y1="75.641" x2="0.647738" y2="63.6795" stroke="black"/>
-                        <line x1="12.8413" y1="2.18557e-08" x2="12.8413" y2="76" stroke="black"/>
-                    </svg>
+                    <div @click="toggleModal(3)" class="relative pr-2">
+                            <div class="
+                                relative 
+                                z-10 
+                                w-full 
+                                px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5 min-[1920px]:px-4
+                                min-[480px]:text-xl min-[1920px]:text-3xl
+                                text-white 
+                                text-center 
+                                bg-light-black
+                            ">
+                                <div class="">
+                                    Создать заявку
+                                </div>
+                            </div>
 
-                    <div class="relative pr-2">
-                        <div class="
-                            relative 
-                            z-10 
-                            w-full 
-                            py-4 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5
-                            text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
-                            text-white 
-                            text-center 
-                            bg-light-black
-                        ">
-                            <div class="">
-                                Оставить заявку
+                            <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
                             </div>
                         </div>
-
-                        <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
-                        </div>
-                    </div>
-
                 </div>
-                
+
+                <NavBarModal v-if="modals[0].visible" @openModal="toggleModal(3)"/>
+                <CreatingApplicationModal v-if="modals[2].visible" @closeModal="toggleModal(3, true)"/>
+                <UserModal v-if="modals[3].visible" @openSignInModal="toggleModal(5)" @openSignUpModal="toggleModal(6)" />
+                <SignInModal v-if="modals[4].visible" @closeModal="toggleModal(5, true)" />
+                <SignUpModal v-if="modals[5].visible" @closeModal="toggleModal(6, true)" />
             </div>
+        </nav>
 
-        </section>
+        <section class="bg-white">
+           
+            <div class="px-3 max-md:pb-10 min-[568px]:px-5 min-[640px]:px-8 md:px-0 max-md:py-10 max-[609px]:mt-72 max-[767px]:mt-96  md:flex md:flex-row-reverse bg-white">
 
-        <section>
-
-            <div class="px-3 max-md:pb-10 min-[568px]:px-5 min-[640px]:px-8 md:px-0  md:flex md:flex-row-reverse">
-
-                <div class="md:hidden relative min-[960px]:w-1/2 max-md:pr-2 ">
-                    <div class="relative min-[480px]:w-full min-[480px]:h-56 md:h-full min-[480px]:bg-[url('../assets/img/LogoImg.png')] min-[480px]:bg-cover min-[480px]:bg-[center_top_50%] md:bg-[50%_50%]">
-                        <img src="../assets/img/LogoImg.png" alt="" class="min-[480px]:hidden relative">
-                    </div>
-
-                    <div class="md:hidden absolute top-2 left-2 right-0 h-full border-light-black border-[1px]">
-                    </div>
-                </div>
-
-                <div class="md:w-full max-md:mt-10 md:p-8 md:py-16 lg:py-16 xl:py-20 min-[1920px]:py-24 lg:px-28 xl:px-36 min-[1920px]:px-52">
+                <div class="md:w-full  md:p-8 md:py-16 lg:py-16 xl:py-20 min-[1920px]:py-24 lg:px-28 xl:px-36 min-[1920px]:px-52 bg-white">
 
                     <h2 class="
                         text-[30px] min-[480px]:text-4xl sm:text-5xl lg:text-[45px] xl:text-[56px] min-[1920px]:text-7xl
@@ -291,7 +264,7 @@
                     <div class="relative mt-10 lg:mt-14 min-[1920px]:mt-24 flex justify-between">
                         <div class="
                             w-8 min-[410px]:w-6 
-                            h-[950px] min-[568px]:h-[550px] md:h-[450px]  xl:h-[400px] min-[1920px]:h-[520px]
+                            h-[1050px] min-[568px]:h-[550px] md:h-[450px]  xl:h-[400px] min-[1920px]:h-[520px]
                             border-light-black 
                             border-l-[1px] min-[1920px]:border-l-2 border-t-[1px] min-[1920px]:border-t-2
                         "></div>
@@ -373,56 +346,24 @@
 
                         <div class="
                             w-8 min-[410px]:w-6 
-                            h-[950px] min-[568px]:h-[550px] md:h-[450px] xl:h-[400px] min-[1920px]:h-[520px]
+                            h-[1050px] min-[568px]:h-[550px] md:h-[450px] xl:h-[400px] min-[1920px]:h-[520px]
                             border-light-black 
                             border-r-[1px] min-[1920px]:border-r-2 border-b-[1px] min-[1920px]:border-b-2
                         "></div>
                     </div>
 
-                    <svg viewBox="0 0 26 76" fill="none" class="w-6 min-[1920px]:w-8 m-auto my-12 min-[1920px]:my-20">
-                        <line x1="12.9878" y1="75.6464" x2="24.9878" y2="63.6464" stroke="black"/>
-                        <line x1="12.6862" y1="75.641" x2="0.647738" y2="63.6795" stroke="black"/>
-                        <line x1="12.8413" y1="2.18557e-08" x2="12.8413" y2="76" stroke="black"/>
-                    </svg>
-
-                    <div class="relative pr-2">
-                        <div class="
-                            relative 
-                            z-10 
-                            w-full 
-                            py-4 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5
-                            text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
-                            text-white text-center 
-                            bg-light-black">
-                            <div class="">
-                                Оставить заявку
-                            </div>
-                        </div>
-
-                        <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
-                        </div>
-                    </div>
-
+                    
                 </div>
                 
             </div>
 
         </section>
 
-        <section>
+        <section class="bg-white">
 
-            <div class="px-3 max-md:pb-10 min-[568px]:px-5 min-[640px]:px-8 md:px-0 md:flex md:flex-row-reverse">
+            <div class="px-3 max-md:pb-10 min-[568px]:px-5 min-[640px]:px-8 md:px-0 max-md:py-10 max-[609px]:mt-72 max-[767px]:mt-96 md:flex md:flex-row-reverse">
 
-                <div class="md:hidden relative min-[960px]:w-1/2 max-md:pr-2 ">
-                    <div class="relative min-[480px]:w-full min-[480px]:h-56 md:h-full min-[480px]:bg-[url('../assets/img/LogoImg.png')] min-[480px]:bg-cover min-[480px]:bg-[center_top_50%] md:bg-[50%_50%]">
-                        <img src="../assets/img/LogoImg.png" alt="" class="min-[480px]:hidden relative">
-                    </div>
-
-                    <div class="md:hidden absolute top-2 left-2 right-0 h-full border-light-black border-[1px]">
-                    </div>
-                </div>
-
-                <div class="md:w-full max-md:mt-10 md:p-8 lg:py-16 xl:py-20 min-[1920px]:py-24 lg:px-28 xl:px-36 min-[1920px]:px-52">
+                <div class="md:w-full  md:p-8 lg:py-16 xl:py-20 min-[1920px]:py-24 lg:px-28 xl:px-36 min-[1920px]:px-52">
 
                     <div class="flex gap-4">
                         <h2 class="
@@ -432,10 +373,6 @@
                         ">
                             Наши работы
                         </h2>
-
-                        <svg viewBox="0 0 104 24" fill="none" class="w-12">
-                            <path d="M103.061 13.0607C103.646 12.4749 103.646 11.5251 103.061 10.9393L93.5147 1.3934C92.9289 0.807612 91.9792 0.807612 91.3934 1.3934C90.8076 1.97918 90.8076 2.92893 91.3934 3.51472L99.8787 12L91.3934 20.4853C90.8076 21.0711 90.8076 22.0208 91.3934 22.6066C91.9792 23.1924 92.9289 23.1924 93.5147 22.6066L103.061 13.0607ZM0 13.5H102V10.5H0V13.5Z" fill="black"/>
-                        </svg>
                     </div>
                     
 
@@ -445,28 +382,28 @@
                         <ProblemCard category="Частные дома" />
                     </div>
 
-                    <svg viewBox="0 0 26 76" fill="none" class="w-6 min-[1920px]:w-8 m-auto my-12 min-[1920px]:my-20">
-                        <line x1="12.9878" y1="75.6464" x2="24.9878" y2="63.6464" stroke="black"/>
-                        <line x1="12.6862" y1="75.641" x2="0.647738" y2="63.6795" stroke="black"/>
-                        <line x1="12.8413" y1="2.18557e-08" x2="12.8413" y2="76" stroke="black"/>
-                    </svg>
-
-                    <div class="relative pr-2">
+                    <div class="relative pr-2 mt-10 lg:mt-16 lg:w-max">
+                                
                         <div class="
                             relative 
-                            z-10 
-                            w-full 
-                            py-4 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5
-                            text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
-                            text-white text-center 
-                            bg-light-black">
+                            z-10
+                            
+                            py-3 md:max-lg:py-2 xl:py-4 min-[1920px]:py-5 px-4
+                            min-[480px]:text-xl min-[1920px]:text-3xl
+                            text-white 
+                            text-center 
+                            bg-light-black
+                        ">
+                            
                             <div class="">
-                                Оставить заявку
+                                Смотреть ещё
                             </div>
+
                         </div>
 
                         <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
                         </div>
+
                     </div>
                 </div>
                 
@@ -474,23 +411,14 @@
 
         </section>
 
-        <section>
+        <section class="bg-white">
 
-            <div class="px-3 max-md:pb-10 min-[568px]:px-5 min-[640px]:px-8 md:px-0 md:flex md:flex-row-reverse">
-
-                <div class="md:hidden relative min-[960px]:w-1/2 max-md:pr-2 ">
-                    <div class="relative min-[480px]:w-full min-[480px]:h-56 md:h-full min-[480px]:bg-[url('../assets/img/LogoImg.png')] min-[480px]:bg-cover min-[480px]:bg-[center_top_50%] md:bg-[50%_50%]">
-                        <img src="../assets/img/LogoImg.png" alt="" class="min-[480px]:hidden relative">
-                    </div>
-
-                    <div class="md:hidden absolute top-2 left-2 right-0 h-full border-light-black border-[1px]">
-                    </div>
-                </div>
+            <div class="px-3 max-md:pb-10 min-[568px]:px-5 min-[640px]:px-8 md:px-0 max-md:py-10 max-[609px]:mt-72 max-[767px]:mt-96 md:flex md:flex-row-reverse">
 
                 <div class="
                     md:w-full
-                    max-md:mt-10 
-                    md:p-8 md:py-12 lg:py-16 xl:py-20 min-[1920px]:py-24 lg:px-28  xl:px-36 min-[1920px]:px-52
+                     
+                    md:p-8 md:py-12 min-[768px]:py-20 lg:py-16 xl:py-20 min-[1920px]:py-24 lg:px-28  xl:px-36 min-[1920px]:px-52
                 ">
                     <h2 class="
                         text-[30px] min-[480px]:text-4xl sm:text-5xl lg:text-[45px] xl:text-[56px] min-[1920px]:text-7xl
@@ -531,42 +459,17 @@
                             <img src="../assets/icons/orbita.png">
                         </div>
                     </div>
-
-                    <svg viewBox="0 0 26 76" fill="none" class="w-6 min-[1920px]:w-8 m-auto my-12 min-[1920px]:my-20">
-                        <line x1="12.9878" y1="75.6464" x2="24.9878" y2="63.6464" stroke="black"/>
-                        <line x1="12.6862" y1="75.641" x2="0.647738" y2="63.6795" stroke="black"/>
-                        <line x1="12.8413" y1="2.18557e-08" x2="12.8413" y2="76" stroke="black"/>
-                    </svg>
-
-                    <div class="relative pr-2">
-                        <div class="
-                            relative 
-                            z-10 
-                            w-full 
-                            py-4 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5
-                            text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
-                            text-white text-center 
-                            bg-light-black">
-                            <div class="">
-                                Оставить заявку
-                            </div>
-                        </div>
-
-                        <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
-                        </div>
-                    </div>
-
                 </div>
                 
             </div>
 
         </section>
 
-        <section>
+        <section class="bg-white">
 
-            <div class="px-3 max-md:pb-10 min-[568px]:px-5 min-[640px]:px-8 md:px-0 md:flex ">
+            <div class="px-3 max-md:pb-10 min-[568px]:px-5 min-[640px]:px-8 md:px-0 max-md:pt-10 min-[610px]:pt-20 min-[768px]:py-0 max-[609px]:mt-72 max-[767px]:mt-96 md:flex ">
 
-                <div class="relative md:z-20 md:inset-y-0 md:w-1/3 min-[960px]:w-1/2 max-md:pr-2 ">
+                <div class="hidden min-[768px]:block relative md:z-20 md:inset-y-0 md:w-1/3 min-[960px]:w-1/2 max-md:pr-2 ">
                     <div class="relative min-[480px]:w-full min-[480px]:h-56 md:h-full min-[480px]:bg-[url('../assets/img/LogoImg.png')] min-[480px]:bg-cover min-[480px]:bg-[center_top_50%] md:bg-[50%_50%]">
                         <img src="../assets/img/LogoImg.png" alt="" class="min-[480px]:hidden relative">
                     </div>
@@ -575,21 +478,17 @@
                     </div>
                 </div>
 
-                <div class="md:w-2/3 min-[960px]:w-1/2 max-md:mt-10 md:p-8 lg:py-16 xl:py-20 min-[1920px]:py-24 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:px-20">
+                <div class="md:w-2/3 min-[960px]:w-1/2  md:p-8 lg:py-16 xl:py-20 min-[1920px]:py-24 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:px-20">
 
                     <h2 class="text-[30px] min-[480px]:text-4xl sm:max-md:text-5xl lg:text-5xl xl:text-6xl min-[1920px]:text-7xl leading-8 font-bold">Мы в соцсетях</h2>
 
-                    <div class="flex max-[479px]:justify-between min-[480px]:gap-5 min-[1920px]:gap-8 my-10 xl:my-14 min-[1920px]:my-20">
+                    <div class="flex gap-7 min-[480px]:gap-5 min-[1920px]:gap-8 my-10 xl:my-14 min-[1920px]:my-20">
                         <svg viewBox="0 0 49 49" fill="none" class="w-12 min-[1920px]:w-16">
                             <path d="M32.0289 0H16.9957C3.26585 0 0 3.26585 0 16.9712V32.0043C0 45.7317 3.24135 49 16.9712 49H32.0043C45.7317 49 49 45.7587 49 32.0289V16.9957C49 3.26585 45.7587 0 32.0289 0ZM39.5577 34.9615H35.9832C34.6308 34.9615 34.2241 33.8664 31.7986 31.4409C29.6818 29.4 28.7875 29.1452 28.251 29.1452C27.5111 29.1452 27.3077 29.3486 27.3077 30.3702V33.5846C27.3077 34.4544 27.026 34.964 24.7548 34.964C22.5506 34.8158 20.4132 34.1462 18.5186 33.0102C16.6239 31.8741 15.0263 30.3042 13.8572 28.4298C11.0818 24.9753 9.15061 20.9209 8.2173 16.589C8.2173 16.0524 8.42065 15.5673 9.4423 15.5673H13.0144C13.9331 15.5673 14.2639 15.9765 14.624 16.9197C16.3586 22.0255 19.3183 26.4649 20.5188 26.4649C20.9794 26.4649 21.1803 26.2616 21.1803 25.1125V19.8548C21.0284 17.4563 19.7543 17.2529 19.7543 16.3856C19.7707 16.1568 19.8755 15.9435 20.0466 15.7907C20.2177 15.6379 20.4415 15.5578 20.6707 15.5673H26.2861C27.0529 15.5673 27.3077 15.9495 27.3077 16.8683V23.9635C27.3077 24.7303 27.6385 24.9851 27.8688 24.9851C28.3294 24.9851 28.6846 24.7303 29.5274 23.8875C31.3376 21.6799 32.8166 19.2204 33.9178 16.5865C34.0304 16.2701 34.2433 15.9992 34.5242 15.8152C34.8051 15.6312 35.1385 15.5441 35.4736 15.5673H39.0481C40.1188 15.5673 40.3466 16.1039 40.1188 16.8683C38.819 19.7799 37.2108 22.5438 35.3217 25.1125C34.937 25.7005 34.7827 26.0068 35.3217 26.6952C35.6769 27.2318 36.9289 28.2779 37.7717 29.2726C38.9964 30.4943 40.0135 31.9077 40.7827 33.4572C41.089 34.4519 40.5769 34.9615 39.5577 34.9615Z" fill="black"/>
                         </svg>
 
                         <svg viewBox="0 0 49 49" fill="none" class="w-12 min-[1920px]:w-16">
                             <path d="M24.5 0C10.976 0 0 10.976 0 24.5C0 38.024 10.976 49 24.5 49C38.024 49 49 38.024 49 24.5C49 10.976 38.024 0 24.5 0ZM35.868 16.66C35.5005 20.531 33.908 29.939 33.0995 34.2755C32.7565 36.113 32.0705 36.7255 31.4335 36.799C30.0125 36.9215 28.9345 35.868 27.5625 34.9615C25.4065 33.5405 24.1815 32.6585 22.099 31.2865C19.6735 29.694 21.2415 28.812 22.638 27.391C23.0055 27.0235 29.2775 21.315 29.4 20.8005C29.417 20.7226 29.4148 20.6417 29.3934 20.5648C29.3721 20.488 29.3323 20.4175 29.2775 20.3595C29.1305 20.237 28.9345 20.286 28.763 20.3105C28.5425 20.3595 25.1125 22.638 18.424 27.146C17.444 27.8075 16.562 28.1505 15.778 28.126C14.896 28.1015 13.23 27.636 11.9805 27.2195C10.437 26.7295 9.2365 26.46 9.3345 25.6025C9.3835 25.1615 9.996 24.7205 11.1475 24.255C18.3015 21.1435 23.0545 19.0855 25.431 18.1055C32.242 15.2635 33.6385 14.7735 34.5695 14.7735C34.7655 14.7735 35.231 14.8225 35.525 15.0675C35.77 15.2635 35.8435 15.533 35.868 15.729C35.8435 15.876 35.8925 16.317 35.868 16.66Z" fill="black"/>
-                        </svg>
-
-                        <svg viewBox="0 0 49 49" fill="none" class="w-12 min-[1920px]:w-16">
-                            <path d="M6.89522 0C3.07568 0 0 3.07568 0 6.89522V42.1048C0 45.9243 3.07568 49 6.89522 49H42.1048C45.9243 49 49 45.9243 49 42.1048V6.89522C49 3.07568 45.9243 0 42.1048 0H6.89522ZM25.5979 5.00721C31.1586 5.00721 35.6797 9.5301 35.6797 15.0905C35.6797 20.6504 31.1586 25.1707 25.5979 25.1707C20.0371 25.1707 15.5131 20.6504 15.5131 15.0905C15.5131 9.5301 20.037 5.00721 25.5979 5.00721ZM25.4907 10.9148C23.2383 10.9721 21.4222 12.825 21.4222 15.0905C21.4222 17.391 23.2959 19.2632 25.5979 19.2632C27.8994 19.2632 29.7706 17.391 29.7706 15.0905C29.7706 12.7891 27.8994 10.9148 25.5979 10.9148C25.562 10.9148 25.5265 10.9139 25.4907 10.9148ZM17.2495 25.5137C17.7836 25.5155 18.3225 25.6625 18.8083 25.9685C22.9355 28.5636 28.2559 28.5654 32.3844 25.9685C33.7667 25.098 35.5886 25.5159 36.459 26.898C37.3286 28.2778 36.9109 30.102 35.5296 30.9711C33.7287 32.103 31.7495 32.9225 29.6756 33.3951L35.3137 39.0332C36.4679 40.185 36.4679 42.0569 35.3137 43.2104C34.1589 44.3644 32.2907 44.3644 31.1379 43.2104L25.5948 37.6703L20.0578 43.2104C19.4813 43.7872 18.7247 44.0756 17.9692 44.0756C17.2129 44.0756 16.4589 43.7865 15.8806 43.2104C14.7266 42.0562 14.7269 40.1874 15.8806 39.0332L21.5156 33.3951C19.4636 32.9272 17.4836 32.1151 15.6601 30.9711C14.2815 30.102 13.867 28.2797 14.7367 26.898C15.2788 26.0342 16.1945 25.5463 17.1423 25.5153C17.1781 25.5141 17.2138 25.5136 17.2496 25.5137H17.2495Z" fill="black"/>
                         </svg>
 
                         <svg viewBox="0 0 49 49" fill="none" class="w-12 min-[1920px]:w-16">
@@ -616,7 +515,7 @@
         </div>
 
         <div class="relative flex flex-col gap-7 min-[1920px]:gap-9 z-10 px-3 min-[568px]:px-5 min-[640px]:max-md:px-8 md:px-8 py-10  min-[1920px]:py-16 text-2xl text-center text-white">
-            <div class="flex max-[479px]:justify-between min-[480px]:justify-center min-[480px]:gap-6  min-[1920px]:gap-8">
+            <div class="flex gap-7 justify-center min-[480px]:gap-6  min-[1920px]:gap-8">
                 <svg viewBox="0 0 51 50" fill="none" class="w-[50px] min-[1920px]:w-16">
                     <path d="M25.5 0C39.5837 0 51 10.9795 51 24.5243C51 38.0691 39.5837 49.0486 25.5 49.0486C20.9936 49.0556 16.5665 47.9086 12.6735 45.7256L0.0102359 49.0486L3.45783 36.8649C1.18602 33.1198 -0.00749286 28.8602 3.53946e-05 24.5243C3.53946e-05 10.9795 11.4164 0 25.5 0ZM16.8096 12.9979L16.2996 13.0175C15.9695 13.0368 15.6468 13.1203 15.351 13.2627C15.0744 13.4134 14.8219 13.6017 14.6013 13.8219C14.2953 14.099 14.1219 14.3394 13.9358 14.5723C12.9926 15.7517 12.4848 17.1997 12.4925 18.6875C12.4976 19.8892 12.824 21.059 13.334 22.1528C14.3769 24.3649 16.0931 26.707 18.3575 28.8774C18.9032 29.3997 19.4387 29.9245 20.015 30.4126C22.8286 32.795 26.1815 34.5131 29.807 35.4303L31.2554 35.6436C31.7271 35.6681 32.1989 35.6338 32.6732 35.6117C33.4158 35.5749 34.141 35.3815 34.7973 35.0452C35.1312 34.8798 35.4571 34.6998 35.774 34.5057C35.774 34.5057 35.8836 34.437 36.0927 34.285C36.437 34.0397 36.6486 33.8656 36.9342 33.5787C37.1459 33.3678 37.3295 33.1201 37.4697 32.838C37.6686 32.4383 37.8675 31.6756 37.9491 31.0404C38.0103 30.5548 37.9925 30.29 37.9848 30.1256C37.9746 29.8632 37.7477 29.591 37.5003 29.4758L36.0162 28.8357C36.0162 28.8357 33.7977 27.9062 32.4411 27.3127C32.2992 27.2531 32.147 27.219 31.9923 27.2122C31.8178 27.1949 31.6416 27.2138 31.4753 27.2675C31.309 27.3213 31.1567 27.4086 31.0284 27.5236C31.0157 27.5187 30.8448 27.6585 29.0012 29.8068C28.8953 29.9436 28.7496 30.0469 28.5825 30.1037C28.4153 30.1605 28.2344 30.1681 28.0628 30.1256C27.8967 30.0828 27.7339 30.0287 27.5757 29.9638C27.2595 29.8363 27.1499 29.7872 26.9331 29.6989C25.4696 29.0847 24.1146 28.2548 22.9169 27.2391C22.5956 26.9694 22.2972 26.6751 21.9912 26.3906C20.988 25.4666 20.1137 24.4213 19.3902 23.2809L19.2398 23.0479C19.1317 22.8914 19.0443 22.7225 18.9797 22.5452C18.8828 22.1847 19.1352 21.8953 19.1352 21.8953C19.1352 21.8953 19.7549 21.2429 20.043 20.8898C20.3235 20.5465 20.5607 20.2129 20.7137 19.975C21.0146 19.5091 21.1089 19.0309 20.9508 18.6605C20.2368 16.9831 19.4973 15.313 18.7374 13.6551C18.587 13.3265 18.1407 13.0911 17.7353 13.0445C17.5976 13.0298 17.4599 13.015 17.3222 13.0052C16.9797 12.9889 16.6366 12.9921 16.2945 13.015L16.8071 12.9954L16.8096 12.9979Z" fill="white"/>
                 </svg>
@@ -627,10 +526,6 @@
 
                 <svg viewBox="0 0 51 49" fill="none" class="w-[50px] min-[1920px]:w-16">
                     <path d="M25.0527 0C11.2236 0 0 10.7983 0 24.1034C0 37.4085 11.2236 48.2069 25.0527 48.2069C38.8819 48.2069 50.1055 37.4085 50.1055 24.1034C50.1055 10.7983 38.8819 0 25.0527 0ZM36.6772 16.3903C36.3014 20.1987 34.673 29.4544 33.8463 33.7207C33.4955 35.5285 32.794 36.1311 32.1427 36.2034C30.6896 36.3239 29.5873 35.2874 28.1843 34.3956C25.9797 32.9976 24.7271 32.1299 22.5976 30.7801C20.1174 29.2134 21.7207 28.3456 23.1487 26.9476C23.5245 26.5861 29.938 20.97 30.0633 20.4638C30.0807 20.3872 30.0784 20.3076 30.0565 20.232C30.0347 20.1563 29.994 20.087 29.938 20.03C29.7877 19.9094 29.5873 19.9576 29.4119 19.9818C29.1864 20.03 25.6791 22.2716 18.8397 26.7066C17.8376 27.3574 16.9357 27.6949 16.134 27.6707C15.2321 27.6466 13.5285 27.1887 12.2508 26.7789C10.6725 26.2969 9.44488 26.0317 9.54509 25.1881C9.5952 24.7542 10.2215 24.3204 11.399 23.8624C18.7144 20.8013 23.5746 18.7766 26.0047 17.8124C32.9694 15.0164 34.3974 14.5344 35.3494 14.5344C35.5498 14.5344 36.0258 14.5826 36.3265 14.8236C36.577 15.0164 36.6522 15.2816 36.6772 15.4744C36.6522 15.619 36.7023 16.0529 36.6772 16.3903Z" fill="white"/>
-                </svg>
-
-                <svg viewBox="0 0 50 50" fill="none" class="w-[50px] min-[1920px]:w-16">
-                    <path d="M7.03594 0C3.13845 0 0 3.07873 0 6.90207V42.1466C0 45.9699 3.13845 49.0486 7.03594 49.0486H42.9641C46.8616 49.0486 50 45.9699 50 42.1466V6.90207C50 3.07873 46.8616 0 42.9641 0H7.03594ZM26.1203 5.01218C31.7945 5.01218 36.4078 9.53956 36.4078 15.1054C36.4078 20.6709 31.7945 25.1957 26.1203 25.1957C20.446 25.1957 15.8297 20.6709 15.8297 15.1054C15.8297 9.53956 20.4459 5.01218 26.1203 5.01218ZM26.0109 10.9256C23.7125 10.983 21.8594 12.8377 21.8594 15.1055C21.8594 17.4083 23.7714 19.2823 26.1203 19.2823C28.4688 19.2823 30.3781 17.4083 30.3781 15.1055C30.3781 12.8018 28.4688 10.9256 26.1203 10.9256C26.0836 10.9256 26.0475 10.9247 26.0109 10.9256ZM17.6015 25.5391C18.1465 25.5409 18.6964 25.688 19.1922 25.9943C23.4036 28.592 28.8326 28.5937 33.0453 25.9943C34.4558 25.1229 36.3149 25.5412 37.2031 26.9247C38.0904 28.3058 37.6642 30.1319 36.2547 31.0018C34.417 32.1348 32.3974 32.9552 30.2812 33.4282L36.0344 39.0719C37.2121 40.2248 37.2121 42.0986 36.0344 43.2533C34.856 44.4084 32.9497 44.4084 31.7734 43.2533L26.1172 37.7077L20.4672 43.2533C19.8788 43.8307 19.1068 44.1193 18.3359 44.1193C17.5642 44.1193 16.7948 43.8299 16.2047 43.2533C15.0271 42.0979 15.0275 40.2273 16.2047 39.0719L21.9547 33.4282C19.8608 32.9599 17.8404 32.147 15.9797 31.0018C14.573 30.1319 14.15 28.3078 15.0375 26.9247C15.5906 26.0601 16.525 25.5716 17.4922 25.5406C17.5286 25.5394 17.5651 25.5389 17.6016 25.5391H17.6015Z" fill="white"/>
                 </svg>
             </div>
 
