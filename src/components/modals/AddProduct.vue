@@ -1,9 +1,9 @@
 <template>
-    <div @click="$emit('openModal')" class="p-4 bg-green rounded-full">
-        <svg viewBox="0 0 25 26" fill="none" class="w-5">
-            <path d="M23.2143 14.7857H14.2857V23.7143C14.2857 24.1879 14.0976 24.6421 13.7627 24.977C13.4278 25.3119 12.9736 25.5 12.5 25.5C12.0264 25.5 11.5722 25.3119 11.2373 24.977C10.9024 24.6421 10.7143 24.1879 10.7143 23.7143V14.7857H1.78571C1.31211 14.7857 0.85791 14.5976 0.523024 14.2627C0.188138 13.9278 0 13.4736 0 13C0 12.5264 0.188138 12.0722 0.523024 11.7373C0.85791 11.4024 1.31211 11.2143 1.78571 11.2143H10.7143V2.28571C10.7143 1.81211 10.9024 1.35791 11.2373 1.02302C11.5722 0.688137 12.0264 0.5 12.5 0.5C12.9736 0.5 13.4278 0.688137 13.7627 1.02302C14.0976 1.35791 14.2857 1.81211 14.2857 2.28571V11.2143H23.2143C23.6879 11.2143 24.1421 11.4024 24.477 11.7373C24.8119 12.0722 25 12.5264 25 13C25 13.4736 24.8119 13.9278 24.477 14.2627C24.1421 14.5976 23.6879 14.7857 23.2143 14.7857Z" fill="black"/>
-        </svg>
-    </div>
+    <svg @click="$emit('openModal')" width="49" viewBox="0 0 49 49" fill="none">
+        <path d="M24.5 47C36.9264 47 47 36.9264 47 24.5C47 12.0736 36.9264 2 24.5 2C12.0736 2 2 12.0736 2 24.5C2 36.9264 12.0736 47 24.5 47Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14.8564 24.5H34.1422" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24.5 14.8564V34.1422" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
 
     <div v-if="modalVisible" class="fixed z-30 inset-0 h-screen flex flex-col bg-white">
         <div @click="$emit('closeModal')" class="flex justify-center py-3 min-[1920px]:py-5 bg-light-black">
@@ -14,49 +14,44 @@
 
         <div class="px-3 min-[568px]:px-5 min-[640px]:px-8 xl:px-10 min-[1366px]:px-12 2xl:px-14  min-[1920px]:px-20 py-6 min-[1920px]:py-10 flex flex-col overflow-auto">
             <div class="text-2xl min-[1920px]:text-5xl text-center">
-                Добавление товара
+                Добавление проекта
             </div>
 
             <form class="my-10 min-[1920px]:my-16 pb-2 flex flex-col min-[1920px]:gap-4 text-xl min-[1920px]:text-3xl overflow-auto">
                 <TextInput 
-                    placeholder="Наименование"
+                    placeholder="Название"
                     v-model:input="title"
                     :errors="errors.title ? errors.title[0] : ''"
                 />
                 
                 <TextInput 
-                    placeholder="Цена"
-                    v-model:input="price"
-                    :errors="errors.price ? errors.price[0] : ''"
+                    placeholder="Количество часов"
+                    v-model:input="amount"
+                    :errors="errors.amount ? errors.amount[0] : ''"
                 />
 
                 <TextInput 
-                    placeholder="Страна-производитель"
-                    v-model:input="countryOfOrigin"
-                    :errors="errors.countryOfOrigin ? errors.countryOfOrigin[0] : ''"
+                    placeholder="Тип строения"
+                    v-model:input="type"
+                    :errors="errors.type ? errors.type[0] : ''"
                 />
 
                 <TextInput 
-                    placeholder="Год выпуска"
-                    v-model:input="yearOfRelease"
-                    :errors="errors.yearOfRelease ? errors.yearOfRelease[0] : ''"
-                />
-
-                <TextInput 
-                    placeholder="Модель"
-                    v-model:input="model"
-                    :errors="errors.model ? errors.model[0] : ''"
+                    placeholder="Дата создания"
+                    v-model:input="date"
+                    :errors="errors.date ? errors.date[0] : ''"
                 />
 
                 <div class="relative mt-9 pr-2">
-                    <div class="relative z-10 w-full py-2 min-[1920px]:py-3 text-center bg-white border-light-black border-[1px]">
+                    <div class="relative z-10 w-full  text-center bg-white border-light-black border-[1px]">
                         <div class="">
-                            Фото товара
-
-                            <svg viewBox="0 0 20 26" fill="none" class="w-4 min-[1920px]:w-5 inline-block ml-2">
-                                <path d="M2.85716 12.9999L10 20.2221M10 20.2221L17.1429 12.9999M10 20.2221V1.44434M1.42859 24.5554H18.5714" stroke="black" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-
+                            <input @change="getUploadedImage" id="photo" type="file" class="hidden">
+                            <label for="photo" class="block py-2 min-[1920px]:py-3">
+                                Фото товара
+                                <svg viewBox="0 0 20 26" fill="none" class="w-4 min-[1920px]:w-5 inline-block ml-2">
+                                    <path d="M2.85716 12.9999L10 20.2221M10 20.2221L17.1429 12.9999M10 20.2221V1.44434M1.42859 24.5554H18.5714" stroke="black" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </label>
                         </div>
                     </div>
 
@@ -64,6 +59,9 @@
                     </div>
                 </div>
                 
+                <div v-if="errors.photo" class="text-lg text-red-500">
+                    {{ errors.photo[0] }}
+                </div>
             </form>
 
             <div class="relative pr-2">
@@ -76,6 +74,8 @@
                 <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
                 </div>
             </div>
+
+
         </div>
     </div>
 </template>
@@ -89,25 +89,34 @@ import Swal from 'sweetalert2'
 let errors = ref([])
 
 let title = ref(null)
-let price = ref(null)
-let countryOfOrigin = ref(null)
-let yearOfRelease = ref(null)
-let model = ref(null)
+let amount = ref(null)
+let type = ref(null)
+let date = ref(null)
 
 const props = defineProps(['modalVisible'])
 
 let {modalVisible} = toRefs(props)
 
+let uploadedImage = ref(null)
+
+let getUploadedImage = (e) => {
+    const file = e.target.files[0]
+    uploadedImage.value = file
+
+    console.log(uploadedImage.value)
+}
+
 let addProduct = async() => {
+    let data = new FormData();
+
+    data.append('title', title.value || '')
+    data.append('amount', amount.value || '')
+    data.append('type', type.value || '')
+    data.append('date', date.value || '')
+    data.append(`photo`, uploadedImage.value || '')
 
     try {
-        let res = await axios.post('api/product', {
-            title: title.value,
-            price: price.value,
-            countryOfOrigin: countryOfOrigin.value,
-            yearOfRelease: yearOfRelease.value,
-            model: model.value
-        })
+        let res = await axios.post('api/product', data)
 
         Swal.fire(
             'Товар добавлен',
@@ -117,8 +126,11 @@ let addProduct = async() => {
 
         console.log(res)
     } catch (err) {
-        errors.value = err.response.data.errors
+        errors.value = err.response.data.warning.warnings[0]
     }
     
 }
+
+
+
 </script>

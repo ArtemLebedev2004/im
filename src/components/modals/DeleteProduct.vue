@@ -1,9 +1,7 @@
 <template>
-    <div @click="$emit('openModal')" class="p-4 bg-pink rounded-full">
-        <svg viewBox="0 0 20 24" fill="none" class="w-4">
-            <path d="M3.75 23.25C3.0625 23.25 2.47417 23.0054 1.985 22.5163C1.49583 22.0271 1.25083 21.4383 1.25 20.75V4.5H0V2H6.25V0.75H13.75V2H20V4.5H18.75V20.75C18.75 21.4375 18.5054 22.0263 18.0163 22.5163C17.5271 23.0063 16.9383 23.2508 16.25 23.25H3.75ZM16.25 4.5H3.75V20.75H16.25V4.5ZM6.25 18.25H8.75V7H6.25V18.25ZM11.25 18.25H13.75V7H11.25V18.25Z" fill="black"/>
-        </svg>
-    </div>
+    <svg @click="$emit('openModal')" width="40" viewBox="0 0 28 32" fill="none">
+        <path d="M5.232 32C4.336 32 3.57333 31.6807 2.944 31.0422C2.31467 30.4037 2 29.6306 2 28.7229V3.59163H0V1.56246H8V0H20V1.56246H28V3.59163H26V28.7229C26 29.6563 25.692 30.4362 25.076 31.0625C24.46 31.6889 23.6907 32.0014 22.768 32H5.232ZM24 3.59163H4V28.7229C4 29.0868 4.11533 29.3857 4.346 29.6198C4.57667 29.8538 4.872 29.9708 5.232 29.9708H22.77C23.0767 29.9708 23.3587 29.841 23.616 29.5812C23.8733 29.3215 24.0013 29.0347 24 28.7209V3.59163ZM9.616 25.9125H11.616V7.64997H9.616V25.9125ZM16.384 25.9125H18.384V7.64997H16.384V25.9125Z" fill="black"/>
+    </svg>
 
     <div v-if="modalVisible" class="fixed z-30 inset-0 h-screen flex flex-col bg-white">
         <div @click="$emit('closeModal')" class="flex justify-center py-3 min-[1920px]:py-5 bg-light-black">
@@ -14,7 +12,7 @@
 
         <div class="px-3 min-[568px]:px-5 min-[640px]:px-8 xl:px-10 min-[1366px]:px-12 2xl:px-14  min-[1920px]:px-20 py-6 min-[1920px]:py-10 flex flex-col overflow-auto">
             <div class="text-2xl min-[1920px]:text-5xl text-center">
-                Удаление товара
+                Удаление проекта
             </div>
 
             <form class="my-10 min-[1920px]:my-16 pb-2 flex flex-col min-[1920px]:gap-4 text-xl min-[1920px]:text-3xl overflow-auto">

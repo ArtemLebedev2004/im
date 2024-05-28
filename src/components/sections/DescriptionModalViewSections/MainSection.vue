@@ -2,7 +2,7 @@
     <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9">
         <div class="">
 
-            <div class="flex max-md:flex-col md:justify-between gap-6 md:gap-10">
+            <div class="flex max-md:flex-col md:justify-between gap-6 md:gap-10 min-[1920px]:mt-16">
                 <div class="md:w-[60%]">
                     <div class="relative pr-2 h-max">
                         <div class="relative z-20  bg-white">
@@ -16,24 +16,24 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-5 mt-5">
+                    <!-- <div class="flex gap-5 mt-5">
                         <img src="../../../assets/img/CardImg1.jpg" alt="" class="w-24">
                         <img src="../../../assets/img/CardImg1.jpg" alt="" class="w-24">
                         <img src="../../../assets/img/CardImg1.jpg" alt="" class="w-24">
                         
-                    </div>
+                    </div> -->
                     
                 </div>
 
-                <div class="md:w-[40%] flex flex-col gap-6">
+                <div class="md:w-[40%] flex flex-col gap-6 min-[1920px]:text-2xl">
                     <div>
                         <div>
-                            Рендер:
+                            Тип:
                         </div>
 
                         <div class="relative pr-2 pb-2">
                             <div class="relative z-10 text-center py-2 px-4 border border-light-black bg-white">
-                                Lumion 12
+                                Частные дома
                             </div>
 
                             <div class="absolute left-2 top-2 bottom-0 right-0 border border-light-black">
@@ -44,12 +44,12 @@
 
                     <div>
                         <div>
-                            Сделано в:
+                            Дата создания:
                         </div>
                         
                         <div class="relative pr-2 pb-2">
                             <div class="relative z-10 text-center py-2 px-4 border border-light-black bg-white">
-                                Blender 3.6
+                                08.11.2023
                             </div>
 
                             <div class="absolute left-2 top-2 bottom-0 right-0 border border-light-black">
@@ -99,9 +99,9 @@
             
             </div>
 
-            <div class="flex items-center justify-between mt-8">
+            <!-- <div class="flex items-center justify-between mt-8">
                 <div>
-                    08.11.2023
+                    08.11.2023 
                 </div>
 
                 <div class=" flex items-center gap-6">
@@ -122,7 +122,7 @@
                         <div>123</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
         </div>
     </section>

@@ -9,7 +9,7 @@
                     <div class="h-max px-2 xl:px-3 py-px xl:py-1 xl:text-[16px] text-white bg-black">{{category}}</div>
                 </div>
                 
-                <div class="absolute -inset-x-[1px] inset-y-0 h-max m-auto flex justify-between">
+                <!-- <div class="absolute -inset-x-[1px] inset-y-0 h-max m-auto flex justify-between">
                     <div class="bg-white py-1 pr-1 min-[460px]:max-md:py-[6px] min-[460px]:max-md:pr-[6px] border-light-black border lg:border-[3px] border-l-0">
                         <div class="bg-light-black p-2 min-[460px]:px-3 sm:max-md:px-4 min-[460px]:py-4 sm:max-md:py-[22px]">
                             
@@ -29,16 +29,16 @@
                             
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
-                <div class="absolute w-max h-max inset-x-0 pb-2 bottom-0 m-auto">
+                <!-- <div class="absolute w-max h-max inset-x-0 pb-2 bottom-0 m-auto">
                     <svg width="54" height="10" viewBox="0 0 54 10" fill="none">
                         <circle cx="5" cy="5" r="5" fill="#989898"/>
                         <circle cx="27" cy="5" r="5" fill="white"/>
                         <circle cx="49" cy="5" r="5" fill="white"/>
                     </svg>
-                </div>
+                </div> -->
 
             </div>
 
@@ -47,23 +47,23 @@
                 
 
                 <div class="min-[480px]:text-xl min-[1920px]:text-3xl font-semibold leading-6">
-                    Дом "Сказка" с планировкой
+                    Дом "Сказка"
                 </div>
 
                 <div class="min-[480px]:text-md min-[1920px]:text-xl">
                     <ul class="list-disc ml-5">
-                        <li>Сделано в Blender 3.6</li>
-                        <li>Рендер: Lumion 12</li>
-                        <li>Автор: Илья Лебедев</li>
+                        <li>Тип: частный дом</li>
+                        <li>Дата создания: 08.11.23</li>
+                        <li>Сделано за: 36 часов</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="p-1 xl:p-2 pt-2 xl:pt-4">
+            <router-link to="/description" class="block p-1 xl:p-2 pt-2 xl:pt-4">
                 <div class="p-2 xl:p-4 bg-light-black text-center min-[480px]:text-xl min-[1920px]:text-3xl text-white">
                     Подробнее
                 </div>
-            </div>
+            </router-link>
 
         </div>
 

@@ -1,6 +1,6 @@
 <template>
     <header class="fixed z-30 top-0 inset-x-0  bg-white">
-        <HeaderSection />
+        <HeaderAdminPSection />
     </header>
 
     <main>
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import HeaderSection from '@/components/reusable/HeaderSection.vue';
-import MainSection from '@/components/sections/AdminViewSections/MainSection.vue'
+import HeaderAdminPSection from '@/components/reusable/HeaderAdminPSection.vue';
+import MainSection from '@/components/sections/AdminPortfolioViewSections/MainSection.vue'
 import FooterSection from '@/components/reusable/FooterSection.vue';
 </script>

@@ -67,7 +67,28 @@
                     </svg>
                 </div>
 
-                <div @click="toggleModal(3)" class="relative">
+                <div class="relative">
+                    <div class="
+                        relative 
+                        z-10 
+                        w-full 
+                        px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5
+                        text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
+                        text-black
+                        text-center 
+                        bg-white
+                        border
+
+                    ">
+                        <div class="">
+                            Портфолио
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <router-link to="/ao3841" class="block relative">
                     <div class="
                         relative 
                         z-10 
@@ -79,12 +100,12 @@
                         bg-light-black
                     ">
                         <div class="">
-                            Создать заявку
+                            Заявки
                         </div>
                     </div>
 
                     
-                </div>
+                </router-link>
             </div>
 
             <NavBarModal v-if="modals[0].visible" @openModal="toggleModal(3)"/>
@@ -109,25 +130,49 @@
                 </svg>
             </div>
 
-            <div @click="toggleModal(3)" class="relative pr-2">
-                <div class="
-                    relative 
-                    z-10 
-                    w-full 
-                    px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5 min-[1920px]:px-4
-                    min-[480px]:text-xl min-[1920px]:text-3xl
-                    text-white 
-                    text-center 
-                    bg-light-black
-                ">
-                    <div class="">
-                        Создать заявку
+            <div class="flex gap-10">
+                <div class="relative pr-2">
+                    <div class="
+                        relative 
+                        z-10 
+                        w-full 
+                        px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5 min-[1920px]:px-4
+                        min-[480px]:text-xl min-[1920px]:text-3xl
+                        text-black 
+                        text-center 
+                        bg-white
+                        border
+                    ">
+                        <div class="">
+                            Портфолио
+                        </div>
+                    </div>
+
+                    <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
                     </div>
                 </div>
 
-                <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
-                </div>
+                <router-link to="/ao3841" class="block relative pr-2">
+                    <div class="
+                        relative 
+                        z-10 
+                        w-full 
+                        px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5 min-[1920px]:px-4
+                        min-[480px]:text-xl min-[1920px]:text-3xl
+                        text-white 
+                        text-center 
+                        bg-light-black
+                    ">
+                        <div class="">
+                            Заявки
+                        </div>
+                    </div>
+
+                    <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
+                    </div>
+                </router-link>
             </div>
+            
         </div>
 
         <NavBarModal v-if="modals[0].visible" @openModal="toggleModal(3)"/>

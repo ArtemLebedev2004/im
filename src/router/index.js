@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '@/views/HomeView'
-import HistoryOfProblemsView from '@/views/HistoryOfProblemsView'
-import AdminView from '@/views/AdminView'
+import Portfolio from '@/views/HistoryOfProblemsView'
+import AdminPortfolioView from '@/views/AdminPortfolioView'
+import AdminOrdersView from '@/views/AdminOrdersView'
 import DescriptionModelView from '@/views/DescriptionModelView'
 import ProfileView from '@/views/ProfileView'
 
@@ -13,14 +14,19 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/history_of_problems',
-    name: 'historyOfProblems',
-    component: HistoryOfProblemsView
+    path: '/portfolio',
+    name: 'portfolio',
+    component: Portfolio
   },
   {
-    path: '/admin',
-    name: 'admin',
-    component: AdminView
+    path: '/ap3841',
+    name: 'adminPortfolio',
+    component: AdminPortfolioView
+  },
+  {
+    path: '/ao3841',
+    name: 'adminOrders',
+    component: AdminOrdersView
   },
   {
     path: '/description',

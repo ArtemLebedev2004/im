@@ -382,13 +382,13 @@
                         <ProblemCard category="Частные дома" />
                     </div>
 
-                    <div class="relative pr-2 mt-10 lg:mt-16 lg:w-max">
+                    <router-link to="/portfolio" class="block relative pr-2 mt-10 lg:mt-20 lg:w-max">
                                 
                         <div class="
                             relative 
                             z-10
-                            
-                            py-3 md:max-lg:py-2 xl:py-4 min-[1920px]:py-5 px-4
+                            min-[1920px]:w-[530px]
+                            py-3 md:max-lg:py-2 xl:py-4 min-[1920px]:py-5 px-4 min-[1920px]:px-10
                             min-[480px]:text-xl min-[1920px]:text-3xl
                             text-white 
                             text-center 
@@ -404,7 +404,7 @@
                         <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
                         </div>
 
-                    </div>
+                    </router-link>
                 </div>
                 
             </div>

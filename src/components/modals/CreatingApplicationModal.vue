@@ -12,51 +12,23 @@
             </div>
 
             <form class="my-10 min-[1920px]:my-16 pb-2 flex flex-col min-[1920px]:gap-4 text-xl min-[1920px]:text-3xl overflow-auto">
-                <TextInput 
-                    placeholder="Название проблемы"
-                    v-model:input="title"
-                    stylesInput="px-2 min-[1920px]:px-4"
-                />
                 
                 <TextArea
-                    placeholder="Описание проблемы"
-                    v-model:input="description"
+                    placeholder="Описание заявки"
+                    v-model:textArea="description"
+                    :errors="errors.description ? errors.description[0] : ''"
                 />
 
-                <div class="relative mt-6 pr-2">
-                    <div class="relative z-10 w-full py-2 min-[1920px]:py-3 text-center bg-white border-light-black border-[1px]">
-                        <div class="">
-                            Категория проблемы
+                <TextInput 
+                    placeholder="E-mail"
+                    v-model:input="email"
+                    stylesInput="px-2 min-[1920px]:px-4"
+                    :errors="errors.email ? errors.email[0] : ''"
+                />
 
-                            <svg viewBox="0 0 26 15" fill="none" class="w-4 min-[1920px]:w-5 inline-block ml-2">
-                                <path d="M2 2L13 13L24 2" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
-                    </div>
-                </div>
-
-                <div class="relative mt-9 pr-2">
-                    <div class="relative z-10 w-full py-2 min-[1920px]:py-3 text-center bg-white border-light-black border-[1px]">
-                        <div class="">
-                            Загрузить фото проблемы
-
-                            <svg viewBox="0 0 20 26" fill="none" class="w-4 min-[1920px]:w-5 inline-block ml-2">
-                                <path d="M2.85716 12.9999L10 20.2221M10 20.2221L17.1429 12.9999M10 20.2221V1.44434M1.42859 24.5554H18.5714" stroke="black" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-
-                        </div>
-                    </div>
-
-                    <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
-                    </div>
-                </div>
-                
             </form>
 
-            <div class="relative pr-2">
+            <div @click="create" class="relative pr-2">
                 <div class="relative z-10 w-full py-2 min-[1920px]:py-3 text-xl min-[1920px]:text-3xl text-white text-center bg-light-black">
                     <div class="">
                         Создать заявку
@@ -75,7 +47,28 @@
 import TextInput from "@/components/reusable/TextInput.vue"
 import TextArea from "@/components/reusable/TextArea.vue"
 import { ref } from 'vue';
+// import { useUserStore } from '../../store/userStore.js';
+import axios from "axios";
+// const userStore = useUserStore()
 
-let title = ref(null)
+
+let email = ref(null)
 let description = ref(null)
+
+let errors = ref([])
+
+let create = async() => {
+    try {
+        let res = await axios.post('http://127.0.0.1:8001/api/order/create', {
+            'description': description.value,
+            'email': email.value
+        })
+
+        console.log(res)
+    } catch (err) {
+        console.log(err)
+        errors.value = err.response.data.warning.warnings[0]
+        console.log(errors.value)
+    }
+}
 </script>
