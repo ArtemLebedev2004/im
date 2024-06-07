@@ -174,12 +174,23 @@
                     </div>
                 </div> -->
                 
-                <div class="flex gap-12">
-                    <AddProduct @openModal="toggleModal(1)" @closeModal="toggleModal(1, true)" :modalVisible="modals[0].visible" />
+                <div class="w-full flex justify-between items-center">
+                    <svg @click="toggleModal(1, false)" width="49" viewBox="0 0 49 49" fill="none" class="cursor-pointer">
+                        <path d="M24.5 47C36.9264 47 47 36.9264 47 24.5C47 12.0736 36.9264 2 24.5 2C12.0736 2 2 12.0736 2 24.5C2 36.9264 12.0736 47 24.5 47Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.8564 24.5H34.1422" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M24.5 14.8564V34.1422" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
 
-                    <EditProduct @openModal="toggleModal(2)" @closeModal="toggleModal(2, true)" :modalVisible="modals[1].visible"/>
+                    <AddProduct v-if="modals[0].visible" @closeModal="toggleModal(1, false, true)" :modalVisible="modals[0].visible" />
 
-                    <DeleteProduct @openModal="toggleModal(3)" @closeModal="toggleModal(3, true)" :modalVisible="modals[2].visible"/>
+                    <div class="w-max">
+                        <input @keydown.enter="search" v-model="input" type="text" placeholder="ID" class="w-full outline-none border-light-black border-b-2">
+
+                        <div v-if="errors.input" class="flex flex-wrap text-lg text-center text-red-500">
+                            {{ errors.input[0] }}
+                        </div>
+                    </div>
+                    
                 </div>
                 
             </div>
@@ -190,21 +201,36 @@
                         <tr class="">
                             <td>#</td>
                             <td>Название</td>
+                            <td>Описание</td>
                             <td>Колчичество часов</td>
                             <td>Тип строения</td>
                             <td>Дата создания</td>
                             <td>Фото</td>
+                            <td>Действия</td>
                         </tr>
                     </thead>
 
                     <tbody class="text-center">
-                        <tr v-for="product in products" :key="product.id">
-                            <td>{{product.id}}</td>
+                        <tr v-for="product in products" :key="product.id" class="relative w-max">
+                            <td>{{ product.id }}</td>
                             <td>{{ product.title }}</td>
+                            <td>{{ product.description }}</td>
                             <td>{{ product.amount }}</td>
                             <td>{{ product.type }}</td>
-                            <td class="">{{ product.date }}</td>
-                            <td class=""><img :src="'http://127.0.0.1:8001/images/attachments/' + product.photo" alt="" class="w-20"></td>
+                            <td>{{ product.date }}</td>
+                            <td><img :src="'http://127.0.0.1:8001/images/attachments/' + product.photo" alt="" class="w-52"></td>
+                            <td>
+                                <div class="flex justify-center gap-8">
+                                    <svg @click="toggleModal(2, product.id)" width="45" viewBox="0 0 33 33" fill="none" class="cursor-pointer">
+                                        <path d="M31.5475 6.50259L25.6775 0.602587C25.2897 0.216652 24.7647 0 24.2175 0C23.6704 0 23.1454 0.216652 22.7575 0.602587L1.94755 21.3826L0.047547 29.5826C-0.0179966 29.8823 -0.0157497 30.193 0.0541233 30.4917C0.123996 30.7905 0.259731 31.0699 0.45141 31.3095C0.64309 31.5491 0.885873 31.7428 1.16202 31.8766C1.43817 32.0104 1.74072 32.0807 2.04755 32.0826C2.19052 32.097 2.33458 32.097 2.47755 32.0826L10.7675 30.1826L31.5475 9.42259C31.9335 9.03469 32.1501 8.50977 32.1501 7.96259C32.1501 7.4154 31.9335 6.89048 31.5475 6.50259ZM9.76755 28.3826L1.99755 30.0126L3.76755 22.3926L19.3375 6.88259L25.3375 12.8826L9.76755 28.3826ZM26.6775 11.4326L20.6775 5.43259L24.1575 1.97259L30.0575 7.97259L26.6775 11.4326Z" fill="black"/>
+                                    </svg>
+                                    <EditProduct v-if="modals[1].visible && productId == product.id" @closeModal="toggleModal(2, product.id, true)"  :product="product"/>
+                                    
+                                    <svg @click="deleteProduct(product)" width="40" viewBox="0 0 28 32" fill="none">
+                                        <path d="M5.232 32C4.336 32 3.57333 31.6807 2.944 31.0422C2.31467 30.4037 2 29.6306 2 28.7229V3.59163H0V1.56246H8V0H20V1.56246H28V3.59163H26V28.7229C26 29.6563 25.692 30.4362 25.076 31.0625C24.46 31.6889 23.6907 32.0014 22.768 32H5.232ZM24 3.59163H4V28.7229C4 29.0868 4.11533 29.3857 4.346 29.6198C4.57667 29.8538 4.872 29.9708 5.232 29.9708H22.77C23.0767 29.9708 23.3587 29.841 23.616 29.5812C23.8733 29.3215 24.0013 29.0347 24 28.7209V3.59163ZM9.616 25.9125H11.616V7.64997H9.616V25.9125ZM16.384 25.9125H18.384V7.64997H16.384V25.9125Z" fill="black"/>
+                                    </svg>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -215,12 +241,14 @@
 
 <script setup>
 import AddProduct from '@/components/modals/AddProduct.vue';
-import DeleteProduct from '@/components/modals/DeleteProduct.vue';
 import EditProduct from '@/components/modals/EditProduct.vue';
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
+import eventBus from '@/eventBus';
+import Swal from 'sweetalert2';
 
 let idOpenModal = ref(false)
+let productId = ref(false)
 
 let products = ref(null)
 
@@ -243,7 +271,7 @@ let modals = ref([
 ])
 
 console.log(modals.value[0].id)
-function toggleModal(id, isClose) {
+function toggleModal(id, product_id, isClose) {
     if (!isClose) {
         if (idOpenModal.value) {
             modals.value[idOpenModal.value - 1].visible = false
@@ -251,13 +279,23 @@ function toggleModal(id, isClose) {
 
         modals.value[id - 1].visible = true
         idOpenModal.value = id
+        productId.value = product_id
     } else {
         modals.value[id - 1].visible = false
         idOpenModal.value = 0
+        productId.value = 0
     }
 }
 
 onMounted(async() => {
+    eventBus.on('addProduct', async()=>{
+        await getProducts()
+    })
+
+    eventBus.on('updateProduct', async()=>{
+        await getProducts()
+    })
+
     await getProducts()
 })
 
@@ -266,6 +304,66 @@ let getProducts = async() => {
 
     products.value = res.data.content
     console.log(products.value)
+}
+
+let deleteProduct = async(product) => {
+
+try {
+    
+
+    Swal.fire({
+        title: "Вы хотите удалить проект с id = " + product.id,
+        showDenyButton: true,
+        confirmButtonText: "Удалить",
+        denyButtonText: `Не удалять`
+    }).then(async(result) => {
+        if (result.isConfirmed) {
+            let res = await axios.delete('api/product/' + product.id)
+            Swal.fire("Проект с id = " + product.id + " удалён", "", "success");
+            console.log(res)
+
+            await getProducts()
+        } 
+    })
+
+
+
+} catch (err) {
+    console.log(err)
+}
+
+}
+
+let errors = ref([])
+
+let input = ref(null)
+
+watch(input, (newValue) => {
+    // let regexp = /[&$?!\\^/#@"',`~=+\-_()[\]%:;№<>]/
+    if (newValue == ' ') {
+        input.value = ''
+    } 
+})
+
+let search = async (e) => {
+    try {
+        if (e.target.value != '') {
+            let res = await axios.post('api/search', {input: e.target.value})
+            products.value = [res.data]
+            console.log(res.data)
+            errors = ref([])
+
+        } else {
+            await getProducts()
+        }
+    } catch (err) {
+        if (err.response.data.code == 2) {
+            console.log(err.response.data)
+            errors.value = {input: [err.response.data.message]}
+        } else {
+            errors.value = err.response.data.warning.warnings[0]
+        }
+    }
 }
 </script>
 

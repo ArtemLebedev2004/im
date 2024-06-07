@@ -89,7 +89,7 @@
 
             </div> -->
 
-            <div class="max-xl:hidden flex gap-10 text-2xl mt-16">
+            <div class="max-lg:flex-col flex gap-10 text-2xl mt-8 lg:mt-16">
                 <!-- <div class="relative pr-2 pb-2">
                     <div class="relative z-10 flex items-center gap-5 py-2 px-4 border-2 border-light-black bg-white">
                         С планировкой
@@ -103,40 +103,53 @@
                         
                     </div>
                 </div> -->
+                <div class="relative">
+                    <div  class="relative pr-2 pb-2">
+                        <div id="type" @click="openType = !openType" class="relative z-10 flex items-center justify-center gap-5 max-lg:text-xl py-2 px-4 border-2 border-light-black bg-white transition-all duration-150 ease-in-out hover:bg-black hover:text-white group cursor-pointer">
+                            {{activeType}}
 
-                <div class="relative pr-2 pb-2">
-                    <div class="relative z-10 flex items-center gap-5 py-2 px-4 border-2 border-light-black bg-white">
-                        Частные дома
+                            <svg id="type" width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L8.5 9L16 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-all ease-in-out duration-150 group-hover:stroke-white"/>
+                            </svg>
+                        </div>
 
-                        <svg width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L8.5 9L16 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <div class="absolute left-2 top-2 bottom-0 right-0 border-2 border-light-black">
+                            
+                        </div>
                     </div>
 
-                    <div class="absolute left-2 top-2 bottom-0 right-0 border-2 border-light-black">
-                        
-                    </div>
-                </div>
-
-                <div class="relative pr-2 pb-2">
-                    <div class="relative z-10 flex items-center gap-5 py-2 px-4 border-2 border-light-black bg-white">
-                        Сначала новые
-
-                        <svg width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L8.5 9L16 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-
-                    <div class="absolute left-2 top-2 bottom-0 right-0 border-2 border-light-black">
-                        
+                    <div v-if="openType"  class="absolute top-16 z-30 w-full max-lg:text-xl text-center border-2 border-black bg-white">
+                        <div @click="getProducts" class="py-3 transition-all ease-in-out duration-150 hover:text-white hover:bg-black cursor-pointer">Все</div>
+                        <div v-for="type in types" :key="type.id" @click="findType(type.title)" class="py-3 transition-all ease-in-out duration-150 hover:text-white hover:bg-black cursor-pointer">{{type.title}}</div>
                     </div>
                 </div>
+                
+
+                <div class="relative">
+                    <div  class="relative pr-2 pb-2">
+                        <div id="new" @click="openNew = !openNew" class="relative z-10 flex items-center justify-center gap-5 max-lg:text-xl py-2 px-4 border-2 border-light-black bg-white transition-all duration-150 ease-in-out hover:bg-black hover:text-white group cursor-pointer">
+                            {{activeTime}}
+
+                            <svg id="new" width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L8.5 9L16 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-all ease-in-out duration-150 group-hover:stroke-white"/>
+                            </svg>
+                        </div>
+
+                        <div class="absolute left-2 top-2 bottom-0 right-0 border-2 border-light-black">
+                            
+                        </div>
+                    </div>
+
+                    <div v-if="openNew" class="absolute top-16 z-30 w-full max-lg:text-xl text-center border-2 border-black bg-white">
+                        <div @click="oldNewProduct('new')" class="py-3 transition-all ease-in-out duration-150 hover:text-white hover:bg-black cursor-pointer">Сначала новые</div>
+                        <div @click="oldNewProduct('old')" class="py-3 transition-all ease-in-out duration-150 hover:text-white hover:bg-black cursor-pointer">Сначала старые</div>
+                    </div>
+                </div>
+                
             </div>
 
             <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 xl:grid-cols-3 gap-12  min-[640px]:gap-16  mt-10">
-                <ProblemCard category="Частный дом" />
-                <ProblemCard category="Частный дом" />
-                <ProblemCard category="Частный дом" />
+                <ProblemCard v-for="product in products" :key="product.id" :title="product.title" :id="product.id" :type="product.type" :amount="product.amount" :date="product.date" :photo="product.photo"/>
             </div>
         </div>
     </section>
@@ -144,6 +157,88 @@
 
 <script setup>
 import ProblemCard from '@/components/reusable/ProblemCard.vue';
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
+let openType = ref(false)
+let openNew = ref(false)
+
+let products = ref(null)
+
+let types = ref(null)
+let activeType = ref('Все')
+
+let activeTime = ref('Сначала новые')
+
+onMounted(async() => {
+    await getTypes()
+    await getProducts()
+
+})
+
+document.addEventListener('click', (e) => {
+    // console.log(e)
+    if (e.target.id != 'type' && openType.value) {
+        openType.value = false
+    } 
+
+    if (e.target.id != 'new' && openNew.value) {
+        openNew.value = false
+    }
+})
+
+let getProducts = async () => {
+    try {
+        let res = await axios('api/products');
+        products.value = res.data.content
+        console.log(products.value)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+let getTypes = async () => {
+    try {
+        let res = await axios('api/types');
+        types.value = res.data
+        console.log(types.value)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+let findType = async (title) => {
+    try {
+        let res = await axios('api/type/' + title);
+        products.value = res.data
+        activeType.value = title
+        console.log(products.value)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+let oldNewProduct = async (title2) => {
+    let data = new FormData();
+    let ids = ref([]);
+    for (let i = 0; i < products.value.length; i++) {
+        ids.value.push(products.value[i].id)
+    }
+
+    data.append('data', ids.value || '')
+    try {
+        let res = await axios.post('api/time_type/' + title2, data);
+        products.value = res.data
+        if (title2 == 'new') {
+            activeTime.value = 'Сначала новые'
+        } else {
+            activeTime.value = 'Сначала старые'
+        }
+        console.log(products.value)
+    } catch (err) {
+        console.log(err)
+    }
+}
 // import axios from 'axios';
 // import { onMounted, ref } from 'vue';
 

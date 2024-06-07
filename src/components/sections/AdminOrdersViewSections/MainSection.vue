@@ -175,11 +175,11 @@
                 </div> -->
                 
                 <div class="flex gap-12">
-                    <AddProduct @openModal="toggleModal(1)" @closeModal="toggleModal(1, true)" :modalVisible="modals[0].visible" />
+                    <!-- <AddProduct @openModal="toggleModal(1)" @closeModal="toggleModal(1, true)" :modalVisible="modals[0].visible" />
 
                     <EditProduct @openModal="toggleModal(2)" @closeModal="toggleModal(2, true)" :modalVisible="modals[1].visible"/>
 
-                    <DeleteProduct @openModal="toggleModal(3)" @closeModal="toggleModal(3, true)" :modalVisible="modals[2].visible"/>
+                    <DeleteProduct @openModal="toggleModal(3)" @closeModal="toggleModal(3, true)" :modalVisible="modals[2].visible"/> -->
                 </div>
                 
             </div>
@@ -191,18 +191,18 @@
                             <td>#</td>
                             <td>Описание</td>
                             <td>E-mail</td>
-                            <td>Статус</td>
-                            <td>Дата создания</td>
+                            <!-- <td>Статус</td>
+                            <td>Дата создания</td> -->
                         </tr>
                     </thead>
 
                     <tbody class="text-center">
-                        <tr v-for="product in products" :key="product.id">
-                            <td>{{product.id}}</td>
-                            <td>{{ product.title }}</td>
-                            <td>{{ product.amount }}</td>
-                            <td>{{ product.type }}</td>
-                            <td class="">{{ product.date }}</td>
+                        <tr v-for="order in orders" :key="order.id">
+                            <td>{{order.id}}</td>
+                            <td>{{ order.description }}</td>
+                            <td>{{ order.email }}</td>
+                            <!-- <td>{{ order.type }}</td>
+                            <td class="">{{ product.date }}</td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -212,15 +212,15 @@
 </template>
 
 <script setup>
-import AddProduct from '@/components/modals/AddProduct.vue';
-import DeleteProduct from '@/components/modals/DeleteProduct.vue';
-import EditProduct from '@/components/modals/EditProduct.vue';
+// import AddProduct from '@/components/modals/AddProduct.vue';
+// import DeleteProduct from '@/components/modals/DeleteProduct.vue';
+// import EditProduct from '@/components/modals/EditProduct.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
-let idOpenModal = ref(false)
+// let idOpenModal = ref(false)
 
-let products = ref(null)
+let orders = ref(null)
 
 let modals = ref([
     {
@@ -241,29 +241,29 @@ let modals = ref([
 ])
 
 console.log(modals.value[0].id)
-function toggleModal(id, isClose) {
-    if (!isClose) {
-        if (idOpenModal.value) {
-            modals.value[idOpenModal.value - 1].visible = false
-        }
+// function toggleModal(id, isClose) {
+//     if (!isClose) {
+//         if (idOpenModal.value) {
+//             modals.value[idOpenModal.value - 1].visible = false
+//         }
 
-        modals.value[id - 1].visible = true
-        idOpenModal.value = id
-    } else {
-        modals.value[id - 1].visible = false
-        idOpenModal.value = 0
-    }
-}
+//         modals.value[id - 1].visible = true
+//         idOpenModal.value = id
+//     } else {
+//         modals.value[id - 1].visible = false
+//         idOpenModal.value = 0
+//     }
+// }
 
 onMounted(async() => {
-    await getProducts()
+    await getOrders()
 })
 
-let getProducts = async() => {
-    let res = await axios('api/products')
+let getOrders = async() => {
+    let res = await axios('api/orders')
 
-    products.value = res.data.content
-    console.log(products.value)
+    orders.value = res.data.content
+    console.log(orders.value)
 }
 </script>
 

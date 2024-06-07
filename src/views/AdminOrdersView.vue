@@ -16,4 +16,9 @@
 import HeaderAdminOSection from '@/components/reusable/HeaderAdminOSection.vue';
 import MainSection from '@/components/sections/AdminOrdersViewSections/MainSection.vue'
 import FooterSection from '@/components/reusable/FooterSection.vue';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    document.body.style.overflow = '';
+})
 </script>

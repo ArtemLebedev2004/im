@@ -55,7 +55,7 @@
     <nav class="md:hidden flex flex-col">
         <div class="p-3 min-[568px]:p-5 sm:px-8 md:px-8">
             <div class="flex justify-between items-center">
-                <div v-if="!modals[0].visible" @click="toggleModal(1)">
+                <div v-if="!modals[0].visible" @click="toggleModal(1)" class="cursor-pointer">
                     <div class="w-9 h-[3px] bg-light-black"></div>
                     <div class="w-9 h-[3px] my-2 bg-light-black"></div>
                     <div class="w-9 h-[3px] bg-light-black"></div>
@@ -77,6 +77,7 @@
                         text-white 
                         text-center 
                         bg-light-black
+                        
                     ">
                         <div class="">
                             Создать заявку
@@ -97,13 +98,13 @@
 
     <nav class="max-md:hidden lg:container m-auto sticky inset-x-0 top-0 z-20 flex flex-col px-9 pt-10 pb-10 bg-white">
         <div class="flex justify-between items-center">
-            <div v-if="!modals[0].visible" @click="toggleModal(1)">
+            <div v-if="!modals[0].visible" @click="toggleModal(1)" class="cursor-pointer">
                 <div class="w-9 min-[1920px]:w-12 h-[3px]  min-[1920px]:h-[4px] bg-light-black"></div>
                 <div class="w-9 min-[1920px]:w-12 h-[3px]   min-[1920px]:h-[4px] my-2 min-[1920px]:my-[10px] bg-light-black"></div>
                 <div class="w-9 min-[1920px]:w-12 h-[3px]  min-[1920px]:h-[4px] bg-light-black"></div>
             </div>
 
-            <div v-if="modals[0].visible" @click="toggleModal(1, true)" class="relative">
+            <div v-if="modals[0].visible" @click="toggleModal(1, true)" class="relative cursor-pointer">
                 <svg viewBox="2 2 12 12" class="w-7 md:max-xl:w-5 min-[1920px]:w-9">
                     <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
                 </svg>
@@ -119,13 +120,18 @@
                     text-white 
                     text-center 
                     bg-light-black
+                    border
+                    border-light-black
+                    cursor-pointer
+                    transition-all duration-150 ease-in-out hover:bg-white hover:text-light-black
+                    peer
                 ">
                     <div class="">
                         Создать заявку
                     </div>
                 </div>
 
-                <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
+                <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px] transition-all duration-150 ease-in-out peer-hover:bg-light-black">
                 </div>
             </div>
         </div>
@@ -137,7 +143,7 @@
     </nav>
     <CreatingApplicationModal v-if="modals[2].visible" @closeModal="toggleModal(3, true)"/>
 
-    <!-- <div v-if="idOpenModal" @click="toggleModal(idOpenModal, true)" class="fixed inset-x-0 h-screen z-10 bg-slate-400/75"></div> -->
+    <div v-if="idOpenModal" @click="toggleModal(idOpenModal, true)" class="fixed inset-x-0 h-screen z-10 bg-slate-400/75"></div>
 
 </template>
 

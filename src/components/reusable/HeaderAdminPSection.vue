@@ -52,79 +52,15 @@
         <SignUpModal v-if="modals[5].visible" @closeModal="toggleModal(6, true)" />
     </nav> -->
 
-    <nav class="md:hidden flex flex-col">
-        <div class="p-3 min-[568px]:p-5 sm:px-8 md:px-8">
-            <div class="flex justify-between items-center">
-                <div v-if="!modals[0].visible" @click="toggleModal(1)">
-                    <div class="w-9 h-[3px] bg-light-black"></div>
-                    <div class="w-9 h-[3px] my-2 bg-light-black"></div>
-                    <div class="w-9 h-[3px] bg-light-black"></div>
-                </div>
-
-                <div v-if="modals[0].visible" @click="toggleModal(1, true)" class="relative">
-                    <svg width="28" height="28" class="" viewBox="2 2 12 12">
-                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                    </svg>
-                </div>
-
-                <div class="relative">
-                    <div class="
-                        relative 
-                        z-10 
-                        w-full 
-                        px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5
-                        text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
-                        text-black
-                        text-center 
-                        bg-white
-                        border
-
-                    ">
-                        <div class="">
-                            Портфолио
-                        </div>
-                    </div>
-
-                    
-                </div>
-
-                <router-link to="/ao3841" class="block relative">
-                    <div class="
-                        relative 
-                        z-10 
-                        w-full 
-                        px-2 py-2 md:py-2 lg:py-3 xl:py-4 min-[1920px]:py-5
-                        text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl
-                        text-white 
-                        text-center 
-                        bg-light-black
-                    ">
-                        <div class="">
-                            Заявки
-                        </div>
-                    </div>
-
-                    
-                </router-link>
-            </div>
-
-            <NavBarModal v-if="modals[0].visible" @openModal="toggleModal(3)"/>
-            <CreatingApplicationModal v-if="modals[2].visible" @closeModal="toggleModal(3, true)"/>
-            <UserModal v-if="modals[3].visible" @openSignInModal="toggleModal(5)" @openSignUpModal="toggleModal(6)" />
-            <SignInModal v-if="modals[4].visible" @closeModal="toggleModal(5, true)" />
-            <SignUpModal v-if="modals[5].visible" @closeModal="toggleModal(6, true)" />
-        </div>
-    </nav>
-
     <nav class="max-md:hidden lg:container m-auto sticky inset-x-0 top-0 z-20 flex flex-col px-9 pt-10 pb-10 bg-white">
         <div class="flex justify-between items-center">
-            <div v-if="!modals[0].visible" @click="toggleModal(1)">
+            <div v-if="!modals[0].visible" @click="toggleModal(1)" class="cursor-pointer">
                 <div class="w-9 min-[1920px]:w-12 h-[3px]  min-[1920px]:h-[4px] bg-light-black"></div>
                 <div class="w-9 min-[1920px]:w-12 h-[3px]   min-[1920px]:h-[4px] my-2 min-[1920px]:my-[10px] bg-light-black"></div>
                 <div class="w-9 min-[1920px]:w-12 h-[3px]  min-[1920px]:h-[4px] bg-light-black"></div>
             </div>
 
-            <div v-if="modals[0].visible" @click="toggleModal(1, true)" class="relative">
+            <div v-if="modals[0].visible" @click="toggleModal(1, true)" class="relative cursor-pointer">
                 <svg viewBox="2 2 12 12" class="w-7 md:max-xl:w-5 min-[1920px]:w-9">
                     <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
                 </svg>
@@ -142,6 +78,7 @@
                         text-center 
                         bg-white
                         border
+                        border-light-black
                     ">
                         <div class="">
                             Портфолио
@@ -162,6 +99,8 @@
                         text-white 
                         text-center 
                         bg-light-black
+                        border
+                        border-light-black
                     ">
                         <div class="">
                             Заявки
@@ -182,7 +121,7 @@
     </nav>
     <CreatingApplicationModal v-if="modals[2].visible" @closeModal="toggleModal(3, true)"/>
 
-    <!-- <div v-if="idOpenModal" @click="toggleModal(idOpenModal, true)" class="fixed inset-x-0 h-screen z-10 bg-slate-400/75"></div> -->
+    <div v-if="idOpenModal" @click="toggleModal(idOpenModal, true)" class="fixed inset-x-0 h-screen z-10 bg-slate-400/75"></div>
 
 </template>
 

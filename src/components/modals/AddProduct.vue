@@ -1,18 +1,14 @@
 <template>
-    <svg @click="$emit('openModal')" width="49" viewBox="0 0 49 49" fill="none">
-        <path d="M24.5 47C36.9264 47 47 36.9264 47 24.5C47 12.0736 36.9264 2 24.5 2C12.0736 2 2 12.0736 2 24.5C2 36.9264 12.0736 47 24.5 47Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M14.8564 24.5H34.1422" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M24.5 14.8564V34.1422" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    
 
-    <div v-if="modalVisible" class="fixed z-30 inset-0 h-screen flex flex-col bg-white">
-        <div @click="$emit('closeModal')" class="flex justify-center py-3 min-[1920px]:py-5 bg-light-black">
+    <div class="fixed z-30 inset-0 h-screen flex flex-col bg-white">
+        <div @click="$emit('closeModal')" class="flex justify-center py-3 min-[1920px]:py-5 bg-light-black cursor-pointer transition-all duration-150 hover:bg-white group">
             <svg class="w-[22px] min-[1920px]:w-7" viewBox="2 2 12 12">
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" fill="#fff"/>
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" fill="#fff" class="stroke-white transition-all duration-150 group-hover:stroke-light-black"/>
             </svg>
         </div>
 
-        <div class="px-3 min-[568px]:px-5 min-[640px]:px-8 xl:px-10 min-[1366px]:px-12 2xl:px-14  min-[1920px]:px-20 py-6 min-[1920px]:py-10 flex flex-col overflow-auto">
+        <div class="px-3 min-[568px]:px-5 min-[640px]:px-8 xl:px-10 min-[1366px]:px-12 2xl:px-14 min-[1920px]:container min-[1920px]:mx-auto py-6 min-[1920px]:py-10 flex flex-col overflow-auto">
             <div class="text-2xl min-[1920px]:text-5xl text-center">
                 Добавление проекта
             </div>
@@ -22,6 +18,12 @@
                     placeholder="Название"
                     v-model:input="title"
                     :errors="errors.title ? errors.title[0] : ''"
+                />
+
+                <TextArea 
+                    placeholder="Описание"
+                    v-model:textArea="description"
+                    :errors="errors.description ? errors.description[0] : ''"
                 />
                 
                 <TextInput 
@@ -43,13 +45,13 @@
                 />
 
                 <div class="relative mt-9 pr-2">
-                    <div class="relative z-10 w-full  text-center bg-white border-light-black border-[1px]">
+                    <div class="relative z-10 w-full text-center bg-white border-light-black border-[1px] cursor-pointer transition-all duration-150 hover:bg-light-black hover:text-white group">
                         <div class="">
                             <input @change="getUploadedImage" id="photo" type="file" class="hidden">
-                            <label for="photo" class="block py-2 min-[1920px]:py-3">
-                                Фото товара
-                                <svg viewBox="0 0 20 26" fill="none" class="w-4 min-[1920px]:w-5 inline-block ml-2">
-                                    <path d="M2.85716 12.9999L10 20.2221M10 20.2221L17.1429 12.9999M10 20.2221V1.44434M1.42859 24.5554H18.5714" stroke="black" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                            <label for="photo" class="block py-2 min-[1920px]:py-3 cursor-pointer">
+                                Фото проекта
+                                <svg viewBox="0 0 20 26" fill="none" class="w-4 min-[1920px]:w-5 inline-block ml-3">
+                                    <path d="M2.85716 12.9999L10 20.2221M10 20.2221L17.1429 12.9999M10 20.2221V1.44434M1.42859 24.5554H18.5714" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-black transition-all duration-150 group-hover:stroke-white"/>
                                 </svg>
                             </label>
                         </div>
@@ -59,19 +61,19 @@
                     </div>
                 </div>
                 
-                <div v-if="errors.photo" class="text-lg text-red-500">
+                <div v-if="errors.photo" class="text-lg text-center text-red-500">
                     {{ errors.photo[0] }}
                 </div>
+
+                <img :src="img" alt="" class="max-w-[700px] max-h-[700px] m-auto mt-16">
             </form>
 
-            <div class="relative pr-2">
-                <div class="relative z-10 w-full py-2 min-[1920px]:py-3 text-xl min-[1920px]:text-3xl text-white text-center bg-light-black">
-                    <div @click="addProduct" class="">
-                        Добавить товар
-                    </div>
+            <div @click="addProduct" class="relative pr-2">
+                <div class="relative z-10 w-full py-2 min-[1920px]:py-3 text-xl min-[1920px]:text-3xl text-white text-center bg-light-black border border-light-black cursor-pointer transition-all duration-150 hover:bg-white hover:text-light-black peer">
+                    Добавить проект
                 </div>
 
-                <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px]">
+                <div class="absolute left-2 right-0 z-0 top-2 h-full border-light-black border-[1px] transition-all duration-150 peer-hover:bg-light-black">
                 </div>
             </div>
 
@@ -81,26 +83,26 @@
 </template>
 
 <script setup>
-import { ref, toRefs } from 'vue';
+import { ref } from 'vue';
 import TextInput from '../reusable/TextInput.vue';
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import TextArea from '../reusable/TextArea.vue';
+import eventBus from '@/eventBus';
 
 let errors = ref([])
 
 let title = ref(null)
+let description = ref(null)
 let amount = ref(null)
 let type = ref(null)
 let date = ref(null)
 
-const props = defineProps(['modalVisible'])
-
-let {modalVisible} = toRefs(props)
-
 let uploadedImage = ref(null)
-
+let img = ref(null)
 let getUploadedImage = (e) => {
     const file = e.target.files[0]
+    img.value = URL.createObjectURL(file)
     uploadedImage.value = file
 
     console.log(uploadedImage.value)
@@ -110,6 +112,7 @@ let addProduct = async() => {
     let data = new FormData();
 
     data.append('title', title.value || '')
+    data.append('description', description.value || '')
     data.append('amount', amount.value || '')
     data.append('type', type.value || '')
     data.append('date', date.value || '')
@@ -119,18 +122,33 @@ let addProduct = async() => {
         let res = await axios.post('api/product', data)
 
         Swal.fire(
-            'Товар добавлен',
+            'Проект добавлен',
             '',
             'success'
         )
 
         console.log(res)
+
+        eventBus.emit('addProduct', '')
+
     } catch (err) {
-        errors.value = err.response.data.warning.warnings[0]
+        if (err.response.data.code == 1) {
+        console.log(err.response.data)
+
+            errors.value = {photo: [err.response.data.message]}
+        } else {
+            errors.value = err.response.data.warning.warnings[0]
+        }
     }
     
 }
 
-
+// let clear = () => {
+//     title.value = ''
+//     description.value = ''
+//     amount.value = ''
+//     type.value = ''
+//     date.value = ''
+// }
 
 </script>

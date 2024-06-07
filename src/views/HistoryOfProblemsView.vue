@@ -16,4 +16,9 @@
 import HeaderSection from '@/components/reusable/HeaderSection.vue';
 import MainSection from '@/components/sections/HoPViewSections/MainSection.vue'
 import FooterSection from '@/components/reusable/FooterSection.vue';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    document.body.style.overflow = '';
+})
 </script>
