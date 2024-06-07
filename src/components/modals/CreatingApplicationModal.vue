@@ -47,8 +47,8 @@ import TextArea from "@/components/reusable/TextArea.vue"
 import { ref } from 'vue';
 // import { useUserStore } from '../../store/userStore.js';
 import axios from "axios";
+import Swal from "sweetalert2";
 // const userStore = useUserStore()
-
 
 let email = ref(null)
 let description = ref(null)
@@ -62,6 +62,12 @@ let create = async() => {
             'email': email.value
         })
 
+        Swal.fire(
+            'Заявка создана',
+            '',
+            'success'
+        )
+        
         console.log(res)
     } catch (err) {
         console.log(err)
