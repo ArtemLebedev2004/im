@@ -110,6 +110,8 @@
                 </svg>
             </div>
 
+            <div class=" text-[30px] min-[480px]:text-2xl sm:max-md:text-3xl lg:text-3xl xl:text-6xl min-[1920px]:text-3xl leading-8 font-bold">+79171952532</div>
+
             <div @click="toggleModal(3)" class="relative pr-2">
                 <div class="
                     relative 

@@ -1,5 +1,5 @@
 <template>
-    <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9 min-[1920px]:pb-60">
+    <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9 min-[1920px]:pb-72">
         <div class="">
             <!-- <div class="xl:flex xl:justify-between">
                 <div class="flex justify-between xl:w-[88%]">

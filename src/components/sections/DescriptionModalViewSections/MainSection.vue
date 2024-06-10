@@ -1,13 +1,13 @@
 <template>
     <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9">
-        <div class="">
+        <div v-if="product" class="">
 
             <div class="flex max-md:flex-col md:justify-between gap-6 md:gap-10 min-[1920px]:mt-16">
                 <div class="md:w-[60%]">
                     <div class="relative pr-2 h-max">
                         <div class="relative z-20  bg-white">
                             <div class="relative text-[12px] w-full min-[500px]:max-md:text-lg">
-                                <img src="../../../assets/img/CardImg1.jpg" alt="" class="w-full">
+                                <img :src="'http://127.0.0.1:8001/images/attachments/' + product.photo" alt="" class="w-full max-h-[400px]">
                             </div>
                         </div>
 
@@ -33,7 +33,7 @@
 
                         <div class="relative pr-2 pb-2">
                             <div class="relative z-10 text-center py-2 px-4 border border-light-black bg-white">
-                                Частные дома
+                                {{product.type}}
                             </div>
 
                             <div class="absolute left-2 top-2 bottom-0 right-0 border border-light-black">
@@ -49,7 +49,7 @@
                         
                         <div class="relative pr-2 pb-2">
                             <div class="relative z-10 text-center py-2 px-4 border border-light-black bg-white">
-                                08.11.2023
+                                {{product.date}}
                             </div>
 
                             <div class="absolute left-2 top-2 bottom-0 right-0 border border-light-black">
@@ -65,7 +65,7 @@
                         
                         <div class="relative pr-2 pb-2">
                             <div class="relative z-10 text-center py-2 px-4 border border-light-black bg-white">
-                                36 часов
+                                {{ product.amount }}
                             </div>
 
                             <div class="absolute left-2 top-2 bottom-0 right-0 border border-light-black">
@@ -76,26 +76,26 @@
                 </div>
             </div>
 
-            <h1 class="mt-16 text-[30px] min-[480px]:text-4xl sm:text-5xl lg:text-[46px] xl:text-6xl min-[1920px]:text-7xl leading-8 font-bold">Дом "сказка" с планировкой</h1>
+            <h1 class="mt-16 text-[30px] min-[480px]:text-4xl sm:text-5xl lg:text-[46px] xl:text-6xl min-[1920px]:text-7xl leading-8 font-bold">{{product.title}}</h1>
 
             <div class="relative mt-10 lg:mt-12 min-[1920px]:mt-20 flex justify-between">
                                 
-                <div class="w-8 min-[410px]:w-6 h-32 min-[410px]:h-28 md:h-20 lg:h-24 xl:h-28 border-light-black border-l-[1px] min-[1920px]:border-l-2 border-t-[1px] min-[1920px]:border-t-2"></div>
+                <div class="w-8 min-[410px]:w-6 h-32 min-[410px]:h-28  md:h-20 lg:h-24 xl:h-28 min-[1920px]:h-32 border-light-black border-l-[1px] min-[1920px]:border-l-2 border-t-[1px] min-[1920px]:border-t-2"></div>
 
                 <div class="
                     absolute 
-                    w-56 min-[410px]:w-[290px] min-[480px]:w-[345px] sm:max-md:w-[410px] md:w-full 
-                    text-lg min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-4xl 
+                    w-72 min-[410px]:w-[290px] min-[480px]:w-[345px] sm:max-md:w-[410px] md:w-full min-[1920px]:w-[1400px]
+                    text-md min-[480px]:text-xl sm:max-md:text-2xl lg:text-2xl xl:text-3xl min-[1920px]:text-3xl 
                     leading-8 min-[1920px]:leading-[50px]
                     md:text-center
                     h-max 
                     m-auto 
                     inset-0
                 ">
-                    Красивый комфортный частный дом на собственном участке
+                    {{product.description}}
                 </div>
 
-                <div class="w-8 min-[410px]:w-6 h-32 min-[410px]:h-28 md:h-20 lg:h-24 xl:h-28 border-light-black border-b-[1px] min-[1920px]:border-b-2 border-r-[1px] min-[1920px]:border-r-2"></div>
+                <div class="w-8 min-[410px]:w-6 h-32 min-[410px]:h-28 md:h-20 lg:h-24 xl:h-28 min-[1920px]:h-32 border-light-black border-b-[1px] min-[1920px]:border-b-2 border-r-[1px] min-[1920px]:border-r-2"></div>
             
             </div>
 
@@ -125,23 +125,28 @@
             </div> -->
             
         </div>
+
+        <div v-else class="text-[25px] min-[1920px]:text-[30px] mt-10">Загрузка проекта...</div>
     </section>
 </template>
 
 <script setup>
-// import axios from 'axios';
-// import { onMounted, ref } from 'vue';
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
-// let products = ref(null)
+let route = useRoute()
 
-// onMounted(async() => {
-//     await getProducts()
-// })
+let product = ref(null)
 
-// let getProducts = async() => {
-//     let res = await axios('api/products')
+onMounted(async() => {
+    await getProduct()
+})
 
-//     products.value = res.data
-//     console.log(products.value)
-// }
+let getProduct = async() => {
+    let res = await axios('api/product/' + route.params.id)
+
+    product.value = res.data.data
+    console.log(product.value)
+}
 </script>

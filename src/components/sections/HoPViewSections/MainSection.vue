@@ -148,9 +148,11 @@
                 
             </div>
 
-            <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 xl:grid-cols-3 gap-12  min-[640px]:gap-16  mt-10">
+            <div v-if="products" class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 xl:grid-cols-3 gap-12  min-[640px]:gap-16  mt-10">
                 <ProblemCard v-for="product in products" :key="product.id" :title="product.title" :id="product.id" :type="product.type" :amount="product.amount" :date="product.date" :photo="product.photo"/>
             </div>
+
+            <div v-else class="text-[25px] min-[1920px]:text-[30px] mt-10">Загрузка проектов...</div>
         </div>
     </section>
 </template>
@@ -191,6 +193,7 @@ let getProducts = async () => {
     try {
         let res = await axios('api/products');
         products.value = res.data.content
+        activeType.value = "Все"
         console.log(products.value)
     } catch (err) {
         console.log(err)

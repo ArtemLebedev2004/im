@@ -29,7 +29,7 @@ const routes = [
     component: AdminOrdersView
   },
   {
-    path: '/description',
+    path: '/description/:id',
     name: 'description',
     component: DescriptionModelView
   },

@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <router-link to="/description" class="block p-1 xl:p-2 pt-2 xl:pt-4">
+            <router-link :to="'/description/' + id" class="block p-1 xl:p-2 pt-2 xl:pt-4">
                 <div class="p-2 xl:p-4 bg-light-black text-center min-[480px]:text-xl min-[1920px]:text-3xl text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black">
                     Подробнее
                 </div>
