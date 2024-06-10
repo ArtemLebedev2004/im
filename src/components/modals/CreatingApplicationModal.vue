@@ -57,7 +57,7 @@ let errors = ref([])
 
 let create = async() => {
     try {
-        let res = await axios.post('http://127.0.0.1:8001/api/order/create', {
+        let res = await axios.post('http://127.0.0.1:8000/api/order/create', {
             'description': description.value,
             'email': email.value
         })

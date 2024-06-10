@@ -142,7 +142,7 @@
                     {{ errors.photo[0] }}
                 </div>
 
-                <img v-if="oldImg" :src="'http://127.0.0.1:8001/images/attachments/' + oldImg" alt="" class="max-w-[700px] max-h-[700px] mt-12 m-auto">
+                <img v-if="oldImg" :src="'http://127.0.0.1:8000/images/attachments/' + oldImg" alt="" class="max-w-[700px] max-h-[700px] mt-12 m-auto">
                 <img v-if="newImg" :src="newImg" alt="" class="max-w-[700px] max-h-[700px] mt-12 m-auto">
 
             </form>
@@ -250,7 +250,7 @@ let editProduct = async() => {
     try {
         console.log(title.value)
 
-        let res = await axios.post('api/product/' + product.value.id + '?_method=PUT', data)
+        let res = await axios.post('http://127.0.0.1:8000/api/product/' + product.value.id + '?_method=PUT', data)
 
         Swal.fire(
             'Товар обновлён',

@@ -260,7 +260,7 @@ onMounted(async() => {
 })
 
 let getOrders = async() => {
-    let res = await axios('api/orders')
+    let res = await axios('http://127.0.0.1:8000/api/orders')
 
     orders.value = res.data.content
     console.log(orders.value)

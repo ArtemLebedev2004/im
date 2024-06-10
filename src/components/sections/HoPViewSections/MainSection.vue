@@ -1,5 +1,5 @@
 <template>
-    <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9">
+    <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9 min-[1920px]:pb-72">
         <div class="">
             <!-- <div class="xl:flex xl:justify-between">
                 <div class="flex justify-between xl:w-[88%]">
@@ -104,7 +104,7 @@
                     </div>
                 </div> -->
                 <div class="relative">
-                    <div  class="relative pr-2 pb-2">
+                    <div  class="relative pr-2 pb-2 lg:w-72">
                         <div id="type" @click="openType = !openType" class="relative z-10 flex items-center justify-center gap-5 max-lg:text-xl py-2 px-4 border-2 border-light-black bg-white transition-all duration-150 ease-in-out hover:bg-black hover:text-white group cursor-pointer">
                             {{activeType}}
 
@@ -126,7 +126,7 @@
                 
 
                 <div class="relative">
-                    <div  class="relative pr-2 pb-2">
+                    <div  class="relative pr-2 pb-2 lg:w-72">
                         <div id="new" @click="openNew = !openNew" class="relative z-10 flex items-center justify-center gap-5 max-lg:text-xl py-2 px-4 border-2 border-light-black bg-white transition-all duration-150 ease-in-out hover:bg-black hover:text-white group cursor-pointer">
                             {{activeTime}}
 

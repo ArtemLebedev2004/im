@@ -1,5 +1,5 @@
 <template>
-    <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9 min-[1920px]:pb-60">
+    <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9 min-[1920px]:pb-72">
         <div class="">
             <!-- <div class="xl:flex xl:justify-between">
                 <div class="flex justify-between xl:w-[88%]">
@@ -218,7 +218,7 @@
                             <td>{{ product.amount }}</td>
                             <td>{{ product.type }}</td>
                             <td>{{ product.date }}</td>
-                            <td><img :src="'http://127.0.0.1:8001/images/attachments/' + product.photo" alt="" class="w-52"></td>
+                            <td><img :src="'http://127.0.0.1:8000/images/attachments/' + product.photo" alt="" class="w-52"></td>
                             <td>
                                 <div class="flex justify-center gap-8">
                                     <svg @click="toggleModal(2, product.id)" width="45" viewBox="0 0 33 33" fill="none" class="cursor-pointer">
@@ -226,7 +226,7 @@
                                     </svg>
                                     <EditProduct v-if="modals[1].visible && productId == product.id" @closeModal="toggleModal(2, product.id, true)"  :product="product"/>
                                     
-                                    <svg @click="deleteProduct(product)" width="40" viewBox="0 0 28 32" fill="none">
+                                    <svg @click="deleteProduct(product)" width="40" viewBox="0 0 28 32" fill="none" class="cursor-pointer">
                                         <path d="M5.232 32C4.336 32 3.57333 31.6807 2.944 31.0422C2.31467 30.4037 2 29.6306 2 28.7229V3.59163H0V1.56246H8V0H20V1.56246H28V3.59163H26V28.7229C26 29.6563 25.692 30.4362 25.076 31.0625C24.46 31.6889 23.6907 32.0014 22.768 32H5.232ZM24 3.59163H4V28.7229C4 29.0868 4.11533 29.3857 4.346 29.6198C4.57667 29.8538 4.872 29.9708 5.232 29.9708H22.77C23.0767 29.9708 23.3587 29.841 23.616 29.5812C23.8733 29.3215 24.0013 29.0347 24 28.7209V3.59163ZM9.616 25.9125H11.616V7.64997H9.616V25.9125ZM16.384 25.9125H18.384V7.64997H16.384V25.9125Z" fill="black"/>
                                     </svg>
                                 </div>
@@ -300,7 +300,7 @@ onMounted(async() => {
 })
 
 let getProducts = async() => {
-    let res = await axios('api/products')
+    let res = await axios('http://127.0.0.1:8000/api/products')
 
     products.value = res.data.content
     console.log(products.value)
@@ -318,7 +318,7 @@ try {
         denyButtonText: `Не удалять`
     }).then(async(result) => {
         if (result.isConfirmed) {
-            let res = await axios.delete('api/product/' + product.id)
+            let res = await axios.delete('http://127.0.0.1:8000/api/product/' + product.id)
             Swal.fire("Проект с id = " + product.id + " удалён", "", "success");
             console.log(res)
 
@@ -348,7 +348,7 @@ watch(input, (newValue) => {
 let search = async (e) => {
     try {
         if (e.target.value != '') {
-            let res = await axios.post('api/search', {input: e.target.value})
+            let res = await axios.post('http://127.0.0.1:8000/api/search', {input: e.target.value})
             products.value = [res.data]
             console.log(res.data)
             errors = ref([])

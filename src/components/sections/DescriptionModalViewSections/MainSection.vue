@@ -1,5 +1,5 @@
 <template>
-    <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9">
+    <section class="lg:container m-auto pt-[85px] min-[440px]:pt-[105px] px-3 min-[440px]:px-6 min-[550px]:px-9 min-[1920px]:pb-80">
         <div v-if="product" class="">
 
             <div class="flex max-md:flex-col md:justify-between gap-6 md:gap-10 min-[1920px]:mt-16">
@@ -7,7 +7,7 @@
                     <div class="relative pr-2 h-max">
                         <div class="relative z-20  bg-white">
                             <div class="relative text-[12px] w-full min-[500px]:max-md:text-lg">
-                                <img :src="'http://127.0.0.1:8001/images/attachments/' + product.photo" alt="" class="w-full max-h-[400px]">
+                                <img :src="'http://127.0.0.1:8000/images/attachments/' + product.photo" alt="" class="w-full max-h-[400px]">
                             </div>
                         </div>
 
@@ -65,7 +65,7 @@
                         
                         <div class="relative pr-2 pb-2">
                             <div class="relative z-10 text-center py-2 px-4 border border-light-black bg-white">
-                                {{ product.amount }}
+                                {{ product.amount }} часов(а)
                             </div>
 
                             <div class="absolute left-2 top-2 bottom-0 right-0 border border-light-black">
@@ -144,7 +144,7 @@ onMounted(async() => {
 })
 
 let getProduct = async() => {
-    let res = await axios('api/product/' + route.params.id)
+    let res = await axios('http://127.0.0.1:8000/api/product/' + route.params.id)
 
     product.value = res.data.data
     console.log(product.value)

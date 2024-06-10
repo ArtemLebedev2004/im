@@ -680,7 +680,7 @@ let modals2 = ref([
 
 let getProducts = async () => {
     try {
-        let res = await axios('api/products');
+        let res = await axios('http://127.0.0.1:8000/api/products');
         for (let i = 0; i < res.data.content.length && i < 3; i++) {
             products.value.push(res.data.content[i])
         }

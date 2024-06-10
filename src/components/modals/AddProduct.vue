@@ -119,7 +119,7 @@ let addProduct = async() => {
     data.append(`photo`, uploadedImage.value || '')
 
     try {
-        let res = await axios.post('api/product', data)
+        let res = await axios.post('http://127.0.0.1:8000/api/product', data)
 
         Swal.fire(
             'Проект добавлен',

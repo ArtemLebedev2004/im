@@ -32,7 +32,7 @@ let deleteProduct = async() => {
             denyButtonText: `Не удалять`
         }).then(async(result) => {
             if (result.isConfirmed) {
-                let res = await axios.delete('api/product/' + product.value.id)
+                let res = await axios.delete('http://127.0.0.1:8000/api/product/' + product.value.id)
                 Swal.fire("Проект с id = " + product.value.id + " удалён", "", "success");
                 console.log(res)
             } 

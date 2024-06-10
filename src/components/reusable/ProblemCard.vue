@@ -1,9 +1,9 @@
 <template>
     <div class="relative pr-2">
-        <div class="relative z-20 border-light-black border  bg-white">
+        <div class="relative z-20 h-full border-light-black border  bg-white">
             <div class="relative w-full text-[12px] min-[500px]:max-md:text-lg">
 
-                <img :src="'http://127.0.0.1:8001/images/attachments/' + photo" alt="" class=" h-72 m-auto">
+                <img :src="'http://127.0.0.1:8000/images/attachments/' + photo" alt="" class=" max-h-72 m-auto">
                 
                 <div class="absolute inset-2 xl:inset-3 h-max z-30 flex justify-between">
                     <div class="h-max px-2 xl:px-3 py-px xl:py-1 xl:text-[16px] text-white bg-black">{{type}}</div>
@@ -43,28 +43,31 @@
 
             </div>
 
+            <div class='flex flex-col justify-between'>
+                <div class="p-3 xl:p-5 flex flex-col gap-5">
+                    
 
-            <div class="p-3 xl:p-5 flex flex-col gap-5">
-                
+                    <div class="text-xl min-[1920px]:text-3xl h-[58px] font-semibold leading-6">
+                        {{title}}
+                    </div>
 
-                <div class="text-xl min-[1920px]:text-3xl font-semibold leading-6">
-                    {{title}}
+                    <div class="min-[480px]:text-md min-[1920px]:text-xl">
+                        <ul class="list-disc ml-5">
+                            <li>Тип: {{type}}</li>
+                            <li>Дата создания: {{date}}</li>
+                            <li>Сделано за: {{amount}} часов</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="min-[480px]:text-md min-[1920px]:text-xl">
-                    <ul class="list-disc ml-5">
-                        <li>Тип: {{type}}</li>
-                        <li>Дата создания: {{date}}</li>
-                        <li>Сделано за: {{amount}} часов</li>
-                    </ul>
-                </div>
+                <router-link :to="'/description/' + id" class="block p-1 xl:p-2 pt-2 xl:pt-4">
+                    <div class="p-2 xl:p-4 bg-light-black text-center min-[480px]:text-xl min-[1920px]:text-3xl text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black">
+                        Подробнее
+                    </div>
+                </router-link>
             </div>
 
-            <router-link :to="'/description/' + id" class="block p-1 xl:p-2 pt-2 xl:pt-4">
-                <div class="p-2 xl:p-4 bg-light-black text-center min-[480px]:text-xl min-[1920px]:text-3xl text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black">
-                    Подробнее
-                </div>
-            </router-link>
+            
 
         </div>
 
